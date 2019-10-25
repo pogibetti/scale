@@ -6,7 +6,10 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  Validator,
+  ValidatorEntry,
+} from './validators';
 
 export namespace Components {
   interface TAlert {
@@ -87,7 +90,10 @@ export namespace Components {
     'theme'?: string;
     'variant'?: string;
   }
-  interface TInputText {}
+  interface TInputText {
+    'validator': Array<string | ValidatorEntry | Validator<string>>;
+    'value': string;
+  }
   interface TTag {
     /**
     * (optional) Tag on an <a> element
@@ -228,7 +234,11 @@ declare namespace LocalJSX {
     'theme'?: string;
     'variant'?: string;
   }
-  interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}
+  interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {
+    'onChanged'?: (event: CustomEvent<string>) => void;
+    'validator'?: Array<string | ValidatorEntry | Validator<string>>;
+    'value'?: string;
+  }
   interface TTag extends JSXBase.HTMLAttributes<HTMLTTagElement> {
     /**
     * (optional) Tag on an <a> element
