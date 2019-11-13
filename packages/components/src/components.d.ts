@@ -87,21 +87,21 @@ export namespace Components {
     'theme'?: string;
     'variant'?: string;
   }
-  interface TInputText {}
-  interface TRadioButton {
+  interface TInputRadio {
     /**
-    * (optional) radio-button disabled
+    * (optional) input-radio disabled
     */
     'disabled'?: boolean;
     /**
-    * (optional) radio-button selected
+    * (optional) input-radio selected
     */
     'selected'?: boolean;
     /**
-    * radio-button value
+    * input-radio value
     */
-    'value': string | number | boolean;
+    'value': string | number;
   }
+  interface TInputText {}
   interface TTag {
     /**
     * (optional) Tag on an <a> element
@@ -145,16 +145,16 @@ declare global {
     new (): HTMLTCardElement;
   };
 
+  interface HTMLTInputRadioElement extends Components.TInputRadio, HTMLStencilElement {}
+  var HTMLTInputRadioElement: {
+    prototype: HTMLTInputRadioElement;
+    new (): HTMLTInputRadioElement;
+  };
+
   interface HTMLTInputTextElement extends Components.TInputText, HTMLStencilElement {}
   var HTMLTInputTextElement: {
     prototype: HTMLTInputTextElement;
     new (): HTMLTInputTextElement;
-  };
-
-  interface HTMLTRadioButtonElement extends Components.TRadioButton, HTMLStencilElement {}
-  var HTMLTRadioButtonElement: {
-    prototype: HTMLTRadioButtonElement;
-    new (): HTMLTRadioButtonElement;
   };
 
   interface HTMLTTagElement extends Components.TTag, HTMLStencilElement {}
@@ -167,8 +167,8 @@ declare global {
     't-badge': HTMLTBadgeElement;
     't-button': HTMLTButtonElement;
     't-card': HTMLTCardElement;
+    't-input-radio': HTMLTInputRadioElement;
     't-input-text': HTMLTInputTextElement;
-    't-radio-button': HTMLTRadioButtonElement;
     't-tag': HTMLTTagElement;
   }
 }
@@ -249,21 +249,21 @@ declare namespace LocalJSX {
     'theme'?: string;
     'variant'?: string;
   }
-  interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}
-  interface TRadioButton extends JSXBase.HTMLAttributes<HTMLTRadioButtonElement> {
+  interface TInputRadio extends JSXBase.HTMLAttributes<HTMLTInputRadioElement> {
     /**
-    * (optional) radio-button disabled
+    * (optional) input-radio disabled
     */
     'disabled'?: boolean;
     /**
-    * (optional) radio-button selected
+    * (optional) input-radio selected
     */
     'selected'?: boolean;
     /**
-    * radio-button value
+    * input-radio value
     */
-    'value'?: string | number | boolean;
+    'value'?: string | number;
   }
+  interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}
   interface TTag extends JSXBase.HTMLAttributes<HTMLTTagElement> {
     /**
     * (optional) Tag on an <a> element
@@ -284,8 +284,8 @@ declare namespace LocalJSX {
     't-badge': TBadge;
     't-button': TButton;
     't-card': TCard;
+    't-input-radio': TInputRadio;
     't-input-text': TInputText;
-    't-radio-button': TRadioButton;
     't-tag': TTag;
   }
 }
