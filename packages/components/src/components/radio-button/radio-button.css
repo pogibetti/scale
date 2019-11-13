@@ -1,0 +1,44 @@
+/**
+* @prop --radio-button-display: Display of the radio-button
+* @prop --radio-button-flex-direction: Flex direction of the radio-button
+* @prop --radio-button-align-items: Align items of the radio-button
+* @prop --radio-button-justify-content: Justify content of the radio-button
+* @prop --radio-button-position: Position of the radio-button
+* @prop --radio-button-text-decoration: Text decoration of the radio-button
+* @prop --radio-button-outline: Outline of the radio-button
+* @prop --radio-button-cursor: Cursor of the radio-button
+* @prop --radio-button-padding: Padding of the radio-button
+* @prop --radio-button-font-size: Font size of the radio-button
+* @prop --radio-button-font-weight: Font weight of the radio-button
+* @prop --radio-button-color: Color of the radio-button
+* @prop --radio-button-variant-primary-color: Color of the radio-button variant primary
+* @prop --radio-button-variant-success-color: Color of the radio-button variant success
+* @prop --radio-button-variant-warning-color: Color of the radio-button variant warning
+* @prop --radio-button-variant-danger-color: Color of the radio-button variant danger
+* @prop --radio-button-variant-info-color: Color of the radio-button variant info
+* @prop --radio-button-hover-with-underline: Color of the radio-button variant primary
+*
+*/
+.radio-button {
+  display: var(--radio-button-display, inline-flex);
+  flex-direction: var(--radio-button-flex-direction, row);
+  align-items: var(--radio-button-align-items, center);
+  justify-content: var(--radio-button-justify-content, center);
+  position: var(--radio-button-position, relative);
+  text-decoration: var(--radio-button-text-decoration, none);
+  outline: var(--radio-button-outline, none);
+  cursor: var(--radio-button-cursor, pointer);
+  padding: var(--radio-button-padding, 0);
+  font-size: var(--radio-button-font-size, 14px);
+  font-weight: var(--radio-button-font-weight, 500);
+  color: var(--radio-button-color, #000);
+}
+
+.radio-button--disabled {
+  cursor: var(--radio-button-disabled-cursor, not-allowed);
+  opacity: var(--radio-button-disabled-opacity, 0.5);
+}
+
+.radio-button--selected {
+  text-decoration: var(--radio-button-hover-with-underline, underline);
+}

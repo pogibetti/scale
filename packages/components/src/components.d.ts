@@ -88,6 +88,20 @@ export namespace Components {
     'variant'?: string;
   }
   interface TInputText {}
+  interface TRadioButton {
+    /**
+    * (optional) radio-button disabled
+    */
+    'disabled'?: boolean;
+    /**
+    * (optional) radio-button selected
+    */
+    'selected'?: boolean;
+    /**
+    * radio-button value
+    */
+    'value': string | number | boolean;
+  }
   interface TTag {
     /**
     * (optional) Tag on an <a> element
@@ -137,6 +151,12 @@ declare global {
     new (): HTMLTInputTextElement;
   };
 
+  interface HTMLTRadioButtonElement extends Components.TRadioButton, HTMLStencilElement {}
+  var HTMLTRadioButtonElement: {
+    prototype: HTMLTRadioButtonElement;
+    new (): HTMLTRadioButtonElement;
+  };
+
   interface HTMLTTagElement extends Components.TTag, HTMLStencilElement {}
   var HTMLTTagElement: {
     prototype: HTMLTTagElement;
@@ -148,6 +168,7 @@ declare global {
     't-button': HTMLTButtonElement;
     't-card': HTMLTCardElement;
     't-input-text': HTMLTInputTextElement;
+    't-radio-button': HTMLTRadioButtonElement;
     't-tag': HTMLTTagElement;
   }
 }
@@ -229,6 +250,20 @@ declare namespace LocalJSX {
     'variant'?: string;
   }
   interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}
+  interface TRadioButton extends JSXBase.HTMLAttributes<HTMLTRadioButtonElement> {
+    /**
+    * (optional) radio-button disabled
+    */
+    'disabled'?: boolean;
+    /**
+    * (optional) radio-button selected
+    */
+    'selected'?: boolean;
+    /**
+    * radio-button value
+    */
+    'value'?: string | number | boolean;
+  }
   interface TTag extends JSXBase.HTMLAttributes<HTMLTTagElement> {
     /**
     * (optional) Tag on an <a> element
@@ -250,6 +285,7 @@ declare namespace LocalJSX {
     't-button': TButton;
     't-card': TCard;
     't-input-text': TInputText;
+    't-radio-button': TRadioButton;
     't-tag': TTag;
   }
 }
