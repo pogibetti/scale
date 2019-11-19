@@ -91,6 +91,7 @@ export namespace Components {
     'variant'?: string;
   }
   interface TInputText {
+    'theme': string;
     'validator': Array<string | ValidatorEntry | Validator<string>>;
     'value': string;
   }
@@ -236,6 +237,7 @@ declare namespace LocalJSX {
   }
   interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {
     'onChanged'?: (event: CustomEvent<string>) => void;
+    'theme'?: string;
     'validator'?: Array<string | ValidatorEntry | Validator<string>>;
     'value'?: string;
   }

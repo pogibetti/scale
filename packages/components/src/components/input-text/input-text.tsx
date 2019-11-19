@@ -15,6 +15,8 @@ export class InputText {
     @Prop() validator: Array<string | ValidatorEntry | Validator<string>>;
   
     @Event() changed: EventEmitter<string>;
+
+    @Prop() theme: string;
   
     _validator: Validator<string> = defaultValidator;
 
@@ -26,14 +28,14 @@ export class InputText {
         this._validator = getValidator<string>(this.validator);
     }
 
-    handleChange(ev){
-        this.value = ev.target ? ev.target.value : null;
+    handleChange(event){
+        this.value = event.target ? event.target.value : null;
         this.changed.emit(this.value);
     }
 
     private getCssClassMap(): CssClassMap {
         return classNames(
-            'input-text'
+            'input-text', this.theme && `input-text--theme-${this.theme}`,
         );
     }
 
@@ -42,8 +44,7 @@ export class InputText {
         return (
             <div>
                 <div class={this.getCssClassMap()}> 
-                   <div class="input-container"></div> 
-                    <input type="text" class="input-text__input" value={this.value} onInput={(ev) => this.handleChange(ev)}/>
+                    <input type="text" class="input-text__input" value={this.value} onInput={(event) => this.handleChange(event)}/>
                 </div>
                 {!this._validator.validate(this.value) ?
                 <span class="validation-error">{this._validator.errorMessage}</span>
