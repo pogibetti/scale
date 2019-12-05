@@ -102,6 +102,74 @@ export namespace Components {
     'value': string | number;
   }
   interface TInputText {}
+  interface TLink {
+    /**
+    * (optional) link disabled
+    */
+    'disabled'?: boolean;
+    /**
+    * (optional) link href
+    */
+    'href'?: string;
+    /**
+    * (optional) link open a new tag
+    */
+    'openNewTab'?: boolean;
+    /**
+    * (optional) link variant
+    */
+    'underline'?: boolean;
+    /**
+    * (optional) link variant
+    */
+    'variant'?: string;
+  }
+  interface TModal {
+    /**
+    * (optional) Modal close
+    */
+    'close'?: string;
+    'onCloseModal': () => Promise<void>;
+    'openModal': () => Promise<void>;
+    /**
+    * (optional) Modal opened
+    */
+    'opened'?: boolean;
+    /**
+    * (optional) Modal size
+    */
+    'size'?: string;
+    /**
+    * (optional) Modal theme
+    */
+    'theme'?: string;
+    /**
+    * (optional) Modal variant
+    */
+    'variant'?: string;
+  }
+  interface TProgressBar {
+    /**
+    * (required) progress percentage
+    */
+    'percentage': number;
+    /**
+    * (optional) show progress percentage text
+    */
+    'showText'?: boolean;
+    /**
+    * (optional) progress stroke width
+    */
+    'strokeWidth'?: number;
+    /**
+    * (optional) progress text display inside bar
+    */
+    'textInside'?: boolean;
+    /**
+    * (optional) show progress variant
+    */
+    'variant'?: string;
+  }
   interface TTag {
     /**
     * (optional) Tag on an <a> element
@@ -157,6 +225,24 @@ declare global {
     new (): HTMLTInputTextElement;
   };
 
+  interface HTMLTLinkElement extends Components.TLink, HTMLStencilElement {}
+  var HTMLTLinkElement: {
+    prototype: HTMLTLinkElement;
+    new (): HTMLTLinkElement;
+  };
+
+  interface HTMLTModalElement extends Components.TModal, HTMLStencilElement {}
+  var HTMLTModalElement: {
+    prototype: HTMLTModalElement;
+    new (): HTMLTModalElement;
+  };
+
+  interface HTMLTProgressBarElement extends Components.TProgressBar, HTMLStencilElement {}
+  var HTMLTProgressBarElement: {
+    prototype: HTMLTProgressBarElement;
+    new (): HTMLTProgressBarElement;
+  };
+
   interface HTMLTTagElement extends Components.TTag, HTMLStencilElement {}
   var HTMLTTagElement: {
     prototype: HTMLTTagElement;
@@ -169,6 +255,9 @@ declare global {
     't-card': HTMLTCardElement;
     't-input-radio': HTMLTInputRadioElement;
     't-input-text': HTMLTInputTextElement;
+    't-link': HTMLTLinkElement;
+    't-modal': HTMLTModalElement;
+    't-progress-bar': HTMLTProgressBarElement;
     't-tag': HTMLTTagElement;
   }
 }
@@ -264,6 +353,72 @@ declare namespace LocalJSX {
     'value'?: string | number;
   }
   interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}
+  interface TLink extends JSXBase.HTMLAttributes<HTMLTLinkElement> {
+    /**
+    * (optional) link disabled
+    */
+    'disabled'?: boolean;
+    /**
+    * (optional) link href
+    */
+    'href'?: string;
+    /**
+    * (optional) link open a new tag
+    */
+    'openNewTab'?: boolean;
+    /**
+    * (optional) link variant
+    */
+    'underline'?: boolean;
+    /**
+    * (optional) link variant
+    */
+    'variant'?: string;
+  }
+  interface TModal extends JSXBase.HTMLAttributes<HTMLTModalElement> {
+    /**
+    * (optional) Modal close
+    */
+    'close'?: string;
+    /**
+    * (optional) Modal opened
+    */
+    'opened'?: boolean;
+    /**
+    * (optional) Modal size
+    */
+    'size'?: string;
+    /**
+    * (optional) Modal theme
+    */
+    'theme'?: string;
+    /**
+    * (optional) Modal variant
+    */
+    'variant'?: string;
+  }
+  interface TProgressBar extends JSXBase.HTMLAttributes<HTMLTProgressBarElement> {
+    /**
+    * (required) progress percentage
+    */
+    'percentage'?: number;
+    /**
+    * (optional) show progress percentage text
+    */
+    'showText'?: boolean;
+    /**
+    * (optional) progress stroke width
+    */
+    'strokeWidth'?: number;
+    /**
+    * (optional) progress text display inside bar
+    */
+    'textInside'?: boolean;
+    /**
+    * (optional) show progress variant
+    */
+    'variant'?: string;
+  }
   interface TTag extends JSXBase.HTMLAttributes<HTMLTTagElement> {
     /**
     * (optional) Tag on an <a> element
@@ -286,6 +441,9 @@ declare namespace LocalJSX {
     't-card': TCard;
     't-input-radio': TInputRadio;
     't-input-text': TInputText;
+    't-link': TLink;
+    't-modal': TModal;
+    't-progress-bar': TProgressBar;
     't-tag': TTag;
   }
 }
@@ -298,5 +456,3 @@ declare module "@stencil/core" {
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
-
-
