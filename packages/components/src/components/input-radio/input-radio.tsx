@@ -1,48 +1,66 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, Prop, h, Listen } from '@stencil/core';
 import { CssClassMap } from '../../utils/utils';
 import classNames from 'classnames';
 
 @Component({
   tag: 't-input-radio',
-  styleUrl: 'input-radio.css',
+  styleUrls: ['input-radio.css'],
   shadow: true,
 })
-export class InputRadio {
-  /**  input-radio value */
-  @Prop() public value: string | number;
-  /** (optional) input-radio disabled */
-  @Prop() public disabled?: boolean = false;
-  /** (optional) input-radio selected */
-  @Prop() public selected?: boolean = false;
+export class Radio {
+  @Prop() value: string | number;
+  @Prop() disabled?: boolean;
+  @Prop() checked?: boolean;
 
-  @State() private checked: boolean;
+  /*   @Listen('onChange', { capture: true })
+  onChange = e => {
+    const checked = e.target.checked;
 
-  public render() {
+    if (checked) {
+      if (this.onChange) {
+        this.onChange(this.value);
+      }
+    }
+
+    this.checked = checked;
+  };
+ */
+  handleClick = () => {
+    console.log('before', this.checked);
+
+    this.checked = true;
+    console.log(this.checked);
+  };
+
+  /*   getChecked(props: Object): boolean {
+    return Boolean(this.checked);
+  } */
+
+  render() {
     return (
-      <div class={this.getCssClassMap()} aria-checked={this.checked}>
-        <span class="radio__input" onClick={this.handleClick}>
-          <input
-            class="radio__original"
-            type="radio"
-            checked={this.checked}
-            value={this.value}
-          />
-        </span>
-        <span>
+      <div className="input-radio">
+        <span
+          class={`input-radio-inner ${this.getCssClassMap()}`}
+          onClick={this.handleClick}
+        ></span>
+        <input
+          type="radio"
+          className="input-radio-original"
+          checked={this.checked}
+          disabled={this.disabled}
+          onChange={this.onChange}
+        />
+        <label className="radio-input-label">
           <slot />
-        </span>
+        </label>
       </div>
     );
   }
 
   private getCssClassMap(): CssClassMap {
     return classNames(
-      'input-radio',
-      this.disabled && `input-radio--disabled`,
-      this.selected && 'input-radio--selected'
+      this.checked && `input-radio-inner-${this.checked}`,
+      this.disabled && `input-radio-inner-${this.disabled}`
     );
   }
-  private handleClick = () => {
-    this.checked = !this.checked;
-  };
 }

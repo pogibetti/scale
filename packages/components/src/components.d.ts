@@ -88,17 +88,8 @@ export namespace Components {
     'variant'?: string;
   }
   interface TInputRadio {
-    /**
-    * (optional) input-radio disabled
-    */
+    'checked'?: boolean;
     'disabled'?: boolean;
-    /**
-    * (optional) input-radio selected
-    */
-    'selected'?: boolean;
-    /**
-    * input-radio value
-    */
     'value': string | number;
   }
   interface TInputText {}
@@ -339,17 +330,8 @@ declare namespace LocalJSX {
     'variant'?: string;
   }
   interface TInputRadio extends JSXBase.HTMLAttributes<HTMLTInputRadioElement> {
-    /**
-    * (optional) input-radio disabled
-    */
+    'checked'?: boolean;
     'disabled'?: boolean;
-    /**
-    * (optional) input-radio selected
-    */
-    'selected'?: boolean;
-    /**
-    * input-radio value
-    */
     'value'?: string | number;
   }
   interface TInputText extends JSXBase.HTMLAttributes<HTMLTInputTextElement> {}

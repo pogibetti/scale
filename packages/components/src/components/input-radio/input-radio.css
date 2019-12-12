@@ -42,3 +42,24 @@
 .input-radio--selected {
   text-decoration: var(--input-radio-hover-with-underline, underline);
 }
+
+.input-radio-original {
+  display: none;
+}
+
+.input-radio-inner {
+  border: 1px solid #dcdfe6;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.input-radio-inner-checked {
+  border-color: #409eff;
+  background: #409eff;
+}
