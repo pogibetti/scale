@@ -19,15 +19,18 @@ export class Bar {
   @Prop() public variant?: string = '';
   @Prop({ reflectToAttr: true }) public open?: boolean = false;
 
-  // private showSlots: boolean;
-
-  // public componentDidLoad() {
-  //   this.showSlots = !!this.el.querySelector('[slot="logo"]');
-  // }
+  private hideSlots: boolean = false;
 
   @Listen('scroll', { target: 'window' })
-  public handleScroll() {
-    // console.log('scrolled', e);
+  public handleScroll(scrollEvent) {
+    const scrollPos = scrollEvent.path[1].scrollY;
+    if (scrollPos > 100) {
+      this.hideSlots = true;
+      console.log('scroll true', this.hideSlots);
+    } else {
+      this.hideSlots = false;
+      console.log('scroll false', this.hideSlots);
+    }
   }
 
   @Method()
@@ -39,11 +42,16 @@ export class Bar {
     if (!this.open) {
       return null;
     }
+
     return (
       <bar class={this.getCssClassMap()}>
         <div class="bar__body">
-          <slot name="logo" />
-          <slot name="claim" />
+          {!!this.hideSlots && (
+            <div class="bar__slots">
+              <slot name="logo" />
+              <slot name="claim" />
+            </div>
+          )}
         </div>
       </bar>
     );
