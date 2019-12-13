@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bar should match snapshot 1`] = `
+<t-bar>
+  <mock:shadow-root>
+    <bar class="bar">
+      <div class="bar__body">
+        <slot name="logo"></slot>
+        <slot name="claim"></slot>
+      </div>
+    </bar>
+  </mock:shadow-root>
+</t-bar>
+`;

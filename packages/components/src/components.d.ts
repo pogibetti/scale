@@ -55,6 +55,22 @@ export namespace Components {
     'size'?: string;
     'variant'?: string;
   }
+  interface TBar {
+    'open'?: boolean;
+    'openBar': () => Promise<void>;
+    /**
+    * (optional) Bar size
+    */
+    'size'?: string;
+    /**
+    * (optional) Bar theme
+    */
+    'theme'?: string;
+    /**
+    * (optional) Bar variant
+    */
+    'variant'?: string;
+  }
   interface TButton {
     /**
     * (optional) Deselected button
@@ -188,6 +204,12 @@ declare global {
     new (): HTMLTBadgeElement;
   };
 
+  interface HTMLTBarElement extends Components.TBar, HTMLStencilElement {}
+  var HTMLTBarElement: {
+    prototype: HTMLTBarElement;
+    new (): HTMLTBarElement;
+  };
+
   interface HTMLTButtonElement extends Components.TButton, HTMLStencilElement {}
   var HTMLTButtonElement: {
     prototype: HTMLTButtonElement;
@@ -232,6 +254,7 @@ declare global {
   interface HTMLElementTagNameMap {
     't-alert': HTMLTAlertElement;
     't-badge': HTMLTBadgeElement;
+    't-bar': HTMLTBarElement;
     't-button': HTMLTButtonElement;
     't-card': HTMLTCardElement;
     't-input-text': HTMLTInputTextElement;
@@ -285,6 +308,21 @@ declare namespace LocalJSX {
     'link'?: string;
     'pill'?: boolean;
     'size'?: string;
+    'variant'?: string;
+  }
+  interface TBar {
+    'open'?: boolean;
+    /**
+    * (optional) Bar size
+    */
+    'size'?: string;
+    /**
+    * (optional) Bar theme
+    */
+    'theme'?: string;
+    /**
+    * (optional) Bar variant
+    */
     'variant'?: string;
   }
   interface TButton {
@@ -403,6 +441,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     't-alert': TAlert;
     't-badge': TBadge;
+    't-bar': TBar;
     't-button': TButton;
     't-card': TCard;
     't-input-text': TInputText;
@@ -421,6 +460,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       't-alert': LocalJSX.TAlert & JSXBase.HTMLAttributes<HTMLTAlertElement>;
       't-badge': LocalJSX.TBadge & JSXBase.HTMLAttributes<HTMLTBadgeElement>;
+      't-bar': LocalJSX.TBar & JSXBase.HTMLAttributes<HTMLTBarElement>;
       't-button': LocalJSX.TButton & JSXBase.HTMLAttributes<HTMLTButtonElement>;
       't-card': LocalJSX.TCard & JSXBase.HTMLAttributes<HTMLTCardElement>;
       't-input-text': LocalJSX.TInputText & JSXBase.HTMLAttributes<HTMLTInputTextElement>;

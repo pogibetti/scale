@@ -1,0 +1,49 @@
+.bar {
+  box-sizing: border-box;
+  padding: 0 1rem;
+  overflow: hidden;
+  display: flex;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #e20074;
+  color: white;
+  z-index: 999;
+  margin: 0;
+  width: 100vh;
+}
+
+.bar__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  width: 100vh;
+  margin: 0;
+}
+
+.bar__scrolled {
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  animation: collapse 3s forwards ease-in;
+}
+@keyframes collapse {
+  from {
+    height: 50px;
+  }
+  to {
+    height: 5px;
+  }
+}
+
+.bar__body .shrink ::slotted(*) {
+  transition: all 1s ease;
+  height: 5px;
+}
+
+.shrink {
+  height: 5px;
+  transition: all 1s ease;
+}
