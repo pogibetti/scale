@@ -1,4 +1,12 @@
-import { Component, Prop, h, Listen, Element, Method } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Listen,
+  Element,
+  Method,
+  State,
+} from '@stencil/core';
 
 import { CssClassMap } from '../../utils/utils';
 import classNames from 'classnames';
@@ -18,18 +26,17 @@ export class Bar {
   /** (optional) Bar variant */
   @Prop() public variant?: string = '';
   @Prop({ reflectToAttr: true }) public open?: boolean = false;
+  @State() public hideSlots?: boolean = false;
 
-  private hideSlots: boolean = false;
+  // private hideSlots: boolean = false;
 
   @Listen('scroll', { target: 'window' })
   public handleScroll(scrollEvent) {
     const scrollPos = scrollEvent.path[1].scrollY;
-    if (scrollPos > 100) {
+    if (scrollPos > 1000) {
       this.hideSlots = true;
-      console.log('scroll true', this.hideSlots);
     } else {
       this.hideSlots = false;
-      console.log('scroll false', this.hideSlots);
     }
   }
 
@@ -46,7 +53,7 @@ export class Bar {
     return (
       <bar class={this.getCssClassMap()}>
         <div class="bar__body">
-          {!!this.hideSlots && (
+          {!this.hideSlots && (
             <div class="bar__slots">
               <slot name="logo" />
               <slot name="claim" />
