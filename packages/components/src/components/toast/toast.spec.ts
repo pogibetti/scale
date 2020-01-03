@@ -185,6 +185,12 @@ describe('Toast', () => {
     expect(element.timerId).toBe(null);
   });
 
+  it('should not componentDidUnload if timerId is null', () => {
+    const timer = jest.fn();
+    element.componentDidUnload(timer, null);
+    expect(timer).not.toHaveBeenCalled();
+  });
+
   it('should have a default css class', () => {
     expect(element.getCssClassMap()).toBe('toast');
   });
