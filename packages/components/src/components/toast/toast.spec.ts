@@ -34,6 +34,15 @@ describe('Toast', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  it('should match snapshot when autoHide is enabled', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `<t-toast opened=true auto-hide=true>Label</t-toast>`,
+    });
+    expect(page.root.shadowRoot).toBeTruthy();
+    expect(page.root).toMatchSnapshot();
+  });
+
   it('should close the Toast', () => {
     expect(element.opened).toBe(undefined);
     element.onCloseToast();
@@ -87,7 +96,7 @@ describe('Toast', () => {
       element.fadeDuration
     );
 
-    jest.runAllTimers()
+    jest.runAllTimers();
 
     expect(element.timerId).toEqual(null);
     expect(element.opened).toEqual(false);
@@ -170,6 +179,12 @@ describe('Toast', () => {
     expect(element.progress).toBeGreaterThan(1);
   });
 
+  it('should clear the timerId', () => {
+    element.timerId = 1;
+    element.componentDidUnload();
+    expect(element.timerId).toBe(null);
+  });
+
   it('should have a default css class', () => {
     expect(element.getCssClassMap()).toBe('toast');
   });
@@ -192,6 +207,11 @@ describe('Toast', () => {
   it('should handle variant css class', () => {
     element.variant = 'primary';
     expect(element.getCssClassMap()).toContain('toast--variant-primary');
+  });
+
+  it('should handle hideToast css class', () => {
+    element.hideToast = true;
+    expect(element.getCssClassMap()).toContain('toast--hide');
   });
 
   it('should render with default time format', () => {
