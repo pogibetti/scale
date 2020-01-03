@@ -37,9 +37,8 @@ describe('Toast', () => {
   it('should close the Toast', () => {
     expect(element.opened).toBe(undefined);
     element.onCloseToast();
-    setTimeout(() => {
-      expect(element.opened).toBe(false);
-    }, 10);
+    jest.runAllTimers();
+    expect(element.opened).toBe(false);
   });
 
   it('should open the Toast', () => {
@@ -52,6 +51,7 @@ describe('Toast', () => {
     element.autohide = true;
     element.opened = true;
     element.setToastTimeout();
+    jest.runAllTimers();
 
     setTimeout(() => {
       expect(setTimeout).toHaveBeenCalledTimes(1);
@@ -86,6 +86,12 @@ describe('Toast', () => {
       expect.any(Function),
       element.fadeDuration
     );
+
+    jest.runAllTimers()
+
+    expect(element.timerId).toEqual(null);
+    expect(element.opened).toEqual(false);
+    expect(element.progress).toEqual(0);
   });
 
   it('should not hide the toast', () => {
@@ -154,19 +160,14 @@ describe('Toast', () => {
   });
 
   it('should set interval for timer id in setToastTimeout function', () => {
-    element.calcProgress = jest.fn();
     element.opened = true;
     element.autoHide = true;
     element.timerId = undefined;
+    element.progress = 0;
     element.setToastTimeout();
+    jest.runOnlyPendingTimers();
     expect(setInterval).toHaveBeenCalledTimes(1);
-    console.log(element.progress);
-    expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
-    setTimeout(() => {
-      expect(element.calcProgress).toHaveBeenCalledTimes(1);
-    }, 10);
-    // expect(element.progress).toBeGreaterThan(1);
-    // expect(setInterval).toHaveBeenCalledWith('element.setToastTimeout()', 10);
+    expect(element.progress).toBeGreaterThan(1);
   });
 
   it('should have a default css class', () => {
@@ -193,7 +194,7 @@ describe('Toast', () => {
     expect(element.getCssClassMap()).toContain('toast--variant-primary');
   });
 
-  it('should render with default timeformat', () => {
+  it('should render with default time format', () => {
     element.time = timeStamp;
     element.getTime();
 
