@@ -67,13 +67,17 @@ export class Toast {
     return formattedTime;
   };
 
+  public calcProgress = () => {
+    this.progress += 1 / (this.getAutoHide() / 1000);
+    if (this.progress >= 100) {
+      this.onCloseToast();
+    }
+  };
+
   public setToastTimeout = () => {
     if (this.opened && this.autoHide !== false && !this.timerId) {
       this.timerId = setInterval(() => {
-        this.progress += 1 / (this.getAutoHide() / 1000);
-        if (this.progress >= 100) {
-          this.onCloseToast();
-        }
+        this.calcProgress();
       }, 10);
     }
   };

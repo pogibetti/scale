@@ -8,6 +8,9 @@ describe('Toast', () => {
     jest.useFakeTimers();
     jest.mock('date-fns');
   });
+  afterEach(() => {
+    jest.clearAllTimers();
+  });
 
   const components = [Toast];
 
@@ -59,6 +62,32 @@ describe('Toast', () => {
     }, 10);
   });
 
+  it('should close the toast onCloseToast function', () => {
+    element.hideToast = false;
+    element.onCloseToast();
+    expect(element.hideToast).toBe(true);
+  });
+
+  it('should clear the interval onCloseToast function', () => {
+    element.timerId = 1;
+    element.onCloseToast();
+    expect(clearInterval).toHaveBeenCalledWith(expect.any(Number));
+  });
+
+  it('should set timeout onCloseToast function', () => {
+    element.timerId = 1;
+    element.opened = true;
+    element.progress = 1;
+    element.fadeDuration = 50;
+    element.onCloseToast();
+
+    expect(setTimeout).toHaveBeenCalledTimes(1);
+    expect(setTimeout).toHaveBeenLastCalledWith(
+      expect.any(Function),
+      element.fadeDuration
+    );
+  });
+
   it('should not hide the toast', () => {
     element.autohide = false;
     element.opened = false;
@@ -74,6 +103,70 @@ describe('Toast', () => {
       expect(clearTimeout).toHaveBeenCalledTimes(1);
       expect(element.myTimeout).toEqual(undefined);
     }, 10);
+  });
+
+  it('should get the autohide time as a number', () => {
+    element.autoHide = 500;
+    element.getAutoHide();
+
+    setTimeout(() => {
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+      expect(setTimeout).toHaveBeenLastCalledWith(
+        expect.any(Function),
+        element.autoHide
+      );
+    }, 10);
+  });
+
+  it('should get the autohide time as a string', () => {
+    element.autoHide = '500';
+    element.getAutoHide();
+
+    setTimeout(() => {
+      expect(setTimeout).toHaveBeenCalledTimes(1);
+      expect(setTimeout).toHaveBeenLastCalledWith(
+        expect.any(Function),
+        element.autoHide
+      );
+    }, 10);
+  });
+
+  it('should not get the autohide time because of the boolean', () => {
+    element.autoHide = false;
+    element.getAutoHide();
+    expect(element.root).toBeFalsy();
+  });
+
+  it('should not get the autohide time because of value null', () => {
+    element.autoHide = null;
+    element.getAutoHide();
+    expect(element.root).toBeFalsy();
+  });
+
+  it('should not get the autohide time because of value undefined', () => {
+    element.autoHide = undefined;
+    element.getAutoHide();
+    expect(element.root).toBeFalsy();
+  });
+
+  it('should be defined as a function', () => {
+    expect(typeof element.setToastTimeout).toBe('function');
+  });
+
+  it('should set interval for timer id in setToastTimeout function', () => {
+    element.calcProgress = jest.fn();
+    element.opened = true;
+    element.autoHide = true;
+    element.timerId = undefined;
+    element.setToastTimeout();
+    expect(setInterval).toHaveBeenCalledTimes(1);
+    console.log(element.progress);
+    expect(setInterval).toHaveBeenLastCalledWith(expect.any(Function), 10);
+    setTimeout(() => {
+      expect(element.calcProgress).toHaveBeenCalledTimes(1);
+    }, 10);
+    // expect(element.progress).toBeGreaterThan(1);
+    // expect(setInterval).toHaveBeenCalledWith('element.setToastTimeout()', 10);
   });
 
   it('should have a default css class', () => {
