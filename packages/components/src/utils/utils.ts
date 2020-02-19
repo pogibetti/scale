@@ -1,10 +1,11 @@
 export { defaultTheme, theme } from './theme';
+import _ from 'lodash';
 
 export type CssClassMap =
   | string
   | {
-      [className: string]: boolean;
-    };
+    [className: string]: boolean;
+  };
 
 export const css = (
   styles: TemplateStringsArray,
@@ -15,3 +16,5 @@ export const css = (
     (result, style, index) => `${result}${style}${_vars[index] || ''}`,
     ''
   );
+
+export const combineStyles = (a: object, b: object) => _.merge({}, a, b);

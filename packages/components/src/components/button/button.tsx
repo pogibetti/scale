@@ -1,9 +1,9 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
-import preset from 'jss-preset-default'
-import jss from 'jss'
-import _ from 'lodash'
+import preset from 'jss-preset-default';
+import jss from 'jss';
+import { combineStyles } from '../../utils/utils';
 
-jss.setup(preset())
+jss.setup(preset());
 
 const styles = {
   button: {
@@ -12,10 +12,10 @@ const styles = {
     fontSize: 16,
     transition: 'all .3s ease-in-out',
     '&:hover': {
-      background: 'blue'
-    }
-  }
-}
+      background: 'blue',
+    },
+  },
+};
 
 @Component({
   tag: 't-button',
@@ -49,22 +49,14 @@ export class Button {
   }
 
   public render() {
-    const stylesheet = jss.createStyleSheet(this.result());
+    const stylesheet = jss.createStyleSheet(combineStyles(styles, this.styles));
     return (
       <Host>
-        <style>
-          {stylesheet.toString()}
-        </style>
+        <style>{stylesheet.toString()}</style>
         <button class={stylesheet.classes.button} disabled={this.disabled}>
           <slot />
         </button>
       </Host>
     );
   }
-
-  private result = () => _.merge(
-    {},
-    styles,
-    this.styles
-  );
 }
