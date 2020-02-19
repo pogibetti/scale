@@ -1,5 +1,5 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
-import { ConstructibleStyle } from "stencil-constructible-style";
+import { ConstructibleStyle } from 'stencil-constructible-style';
 import preset from 'jss-preset-default';
 import jss from 'jss';
 import { combineStyles } from '../../utils/utils';
@@ -35,9 +35,9 @@ const styles: object = {
     transition: 'var(--button-transition, all 0.2s ease-in-out)',
     '&:before': {
       width: 'var(--button-letter-spacing, 0)',
-      content: '\'\'',
+      content: "''",
       display: 'block',
-      height: '100%'
+      height: '100%',
     },
     '&:hover, &.active': {
       color: 'var(--button-hover-color, #fff)',
@@ -51,24 +51,26 @@ const styles: object = {
       fontSize: 'var(--button-hover-font-size, unset)',
       fontWeight: 'var(--button-hover-font-weight, 400)',
       transition: 'var(--button-hover-transition, all 0.2s ease-in-out)',
-      textDecoration: 'none'
+      textDecoration: 'none',
     },
     '&:not(.tabbing):focus': {
-      outline: '0'
+      outline: '0',
     },
     '&--disabled, &--disabled:hover': {
-      background: 'var(--button-disabled-background-color, var(--button-background-color, #fff))',
-      border: 'var(--button-disabled-border, var(--button-border, 1px solid #000))',
+      background:
+        'var(--button-disabled-background-color, var(--button-background-color, #fff))',
+      border:
+        'var(--button-disabled-border, var(--button-border, 1px solid #000))',
       color: 'var(--button-disabled-color, var(--button-color, #000))',
       opacity: '0.5',
-      cursor: 'not-allowed'
-    }
-  }
+      cursor: 'not-allowed',
+    },
+  },
 };
 
 @Component({
   tag: 't-button',
-  shadow: true
+  shadow: true,
 })
 export class Button {
   /** (optional) Button size */
@@ -83,12 +85,12 @@ export class Button {
   @Prop() deselected?: boolean = false;
   @Prop() styles?: any = {};
 
-  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.styles))
+  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.styles));
 
-  @ConstructibleStyle() style = this.stylesheet.toString()
+  @ConstructibleStyle() style = this.stylesheet.toString();
 
   // tslint:disable-next-line: no-empty
-  componentWillLoad() { }
+  componentWillLoad() {}
 
   /** Button method: disable()  */
   @Method()
