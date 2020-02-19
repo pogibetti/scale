@@ -4,8 +4,8 @@ import _ from 'lodash';
 export type CssClassMap =
   | string
   | {
-    [className: string]: boolean;
-  };
+      [className: string]: boolean;
+    };
 
 export const css = (
   styles: TemplateStringsArray,
