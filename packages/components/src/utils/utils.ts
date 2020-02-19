@@ -4,8 +4,8 @@ import _ from 'lodash';
 export type CssClassMap =
   | string
   | {
-      [className: string]: boolean;
-    };
+    [className: string]: boolean;
+  };
 
 export const css = (
   styles: TemplateStringsArray,
@@ -17,4 +17,4 @@ export const css = (
     ''
   );
 
-export const combineStyles = (a: object, b: object) => _.merge({}, a, b);
+export const combineStyles = (a: object, b: object): object => _.merge({}, a, b);

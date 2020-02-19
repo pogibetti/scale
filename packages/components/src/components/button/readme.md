@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                  | Type      | Default |
-| ------------- | -------------- | ---------------------------- | --------- | ------- |
-| `customClass` | `custom-class` | (optional) Button class      | `string`  | `''`    |
-| `deselected`  | `deselected`   | (optional) Deselected button | `boolean` | `false` |
-| `disabled`    | `disabled`     | (optional) Disabled button   | `boolean` | `false` |
-| `size`        | `size`         | (optional) Button size       | `string`  | `''`    |
-| `theme`       | `theme`        | (optional) Button theme      | `string`  | `''`    |
-| `variant`     | `variant`      | (optional) Button variant    | `string`  | `''`    |
+| Property     | Attribute    | Description                  | Type      | Default |
+| ------------ | ------------ | ---------------------------- | --------- | ------- |
+| `deselected` | `deselected` | (optional) Deselected button | `boolean` | `false` |
+| `disabled`   | `disabled`   | (optional) Disabled button   | `boolean` | `false` |
+| `size`       | `size`       | (optional) Button size       | `string`  | `''`    |
+| `styles`     | `styles`     |                              | `any`     | `{}`    |
+| `theme`      | `theme`      | (optional) Button theme      | `string`  | `''`    |
+| `variant`    | `variant`    | (optional) Button variant    | `string`  | `''`    |
 
 
 ## Methods

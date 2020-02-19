@@ -54,8 +54,12 @@
         const showToastAutoHide = document.getElementById('show-toast-auto-hide');
         showToastAutoHide.styles = {
             button: {
+                color: 'white',
                 background: 'purple',
-                fontSize: 21
+                '&:hover': {
+                    color: 'black',
+                    background: 'yellow',
+                }
             }
         }
         const enabledToastAutoHide = document.getElementById(

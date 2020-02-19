@@ -6,6 +6,7 @@
   ],
   "jsRules": {},
   "rules": {
+    "member-access": false,
     "interface-name": [
       true,
       "never-prefix"

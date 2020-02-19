@@ -74,10 +74,6 @@ export namespace Components {
   }
   interface TButton {
     /**
-    * (optional) Button class
-    */
-    'customClass'?: string;
-    /**
     * (optional) Deselected button
     */
     'deselected'?: boolean;
@@ -640,10 +636,6 @@ declare namespace LocalJSX {
     'variant'?: string;
   }
   interface TButton {
-    /**
-    * (optional) Button class
-    */
-    'customClass'?: string;
     /**
     * (optional) Deselected button
     */
