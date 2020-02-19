@@ -46,5 +46,8 @@
     "url": "https://github.com/telekom/telements"
   },
   "homepage": "https://stenciljs.com/",
-  "dependencies": {}
+  "dependencies": {
+    "jss": "^10.0.4",
+    "jss-preset-default": "^10.0.4"
+  }
 }

@@ -97,6 +97,7 @@ export namespace Components {
     * (optional) Button size
     */
     'size'?: string;
+    'styles'?: any;
     /**
     * (optional) Button theme
     */
@@ -655,6 +656,7 @@ declare namespace LocalJSX {
     * (optional) Button size
     */
     'size'?: string;
+    'styles'?: any;
     /**
     * (optional) Button theme
     */
