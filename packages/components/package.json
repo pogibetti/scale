@@ -43,6 +43,8 @@
   "dependencies": {
     "@types/classnames": "^2.2.8",
     "classnames": "^2.2.6",
+    "jss": "^10.0.4",
+    "jss-preset-default": "^10.0.4",
     "lodash": "^4.17.15"
   }
 }
