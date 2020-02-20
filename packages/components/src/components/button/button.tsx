@@ -85,12 +85,14 @@ export class Button {
   @Prop() deselected?: boolean = false;
   @Prop() styles?: any = {};
 
-  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.styles));
+  parsedStyles = typeof this.styles === 'object' ? this.styles : JSON.parse(this.styles);
+
+  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.parsedStyles));
 
   @ConstructibleStyle() style = this.stylesheet.toString();
 
   // tslint:disable-next-line: no-empty
-  componentWillLoad() {}
+  componentWillLoad() { }
 
   /** Button method: disable()  */
   @Method()
