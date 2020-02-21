@@ -12,8 +12,7 @@
 | `deselected` | `deselected` | (optional) Deselected button | `boolean` | `false` |
 | `disabled`   | `disabled`   | (optional) Disabled button   | `boolean` | `false` |
 | `size`       | `size`       | (optional) Button size       | `string`  | `''`    |
-| `styles`     | `styles`     |                              | `any`     | `{}`    |
-| `theme`      | `theme`      | (optional) Button theme      | `string`  | `''`    |
+| `styles`     | --           |                              | `object`  | `{}`    |
 | `variant`    | `variant`    | (optional) Button variant    | `string`  | `''`    |
 
 

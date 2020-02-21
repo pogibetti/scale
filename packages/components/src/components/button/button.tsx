@@ -1,12 +1,12 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
 import { ConstructibleStyle } from 'stencil-constructible-style';
-import preset from 'jss-preset-default';
 import jss from 'jss';
 import { combineStyles } from '../../utils/utils';
 import { CssClassMap } from '../../utils/utils';
 import classNames from 'classnames';
+import BaseInterface from './base-interface'
+import { CssInJs } from '../../utils/decoraters/css-in-js';
 
-jss.setup(preset());
 
 const styles: object = {
   button: {
@@ -45,7 +45,6 @@ const styles: object = {
       border: 'var(--button-hover-border, 1px solid #000)',
       borderColor: 'var(--button-hover-border-color, #000)',
       borderRadius: 'var(--button-hover-border-radius, 0)',
-      padding: 'var(--button-hover-padding, 0.25rem 1rem)',
       boxShadow: 'var(--button-hover-box-shadow, none)',
       lineHeight: 'var(--button-hover-line-height, 2rem)',
       fontSize: 'var(--button-hover-font-size, unset)',
@@ -72,27 +71,25 @@ const styles: object = {
   tag: 't-button',
   shadow: true,
 })
-export class Button {
+export class Button implements BaseInterface {
   /** (optional) Button size */
   @Prop() size?: string = '';
-  /** (optional) Button theme */
-  @Prop() theme?: string = '';
   /** (optional) Button variant */
   @Prop() variant?: string = '';
   /** (optional) Disabled button */
   @Prop() disabled?: boolean = false;
   /** (optional) Deselected button */
   @Prop() deselected?: boolean = false;
-  @Prop() styles?: any = {};
+  @Prop() styles?: object = {};
 
-  parsedStyles = typeof this.styles === 'object' ? this.styles : JSON.parse(this.styles);
+  @CssInJs({ color: 'red' }) x = ''
 
-  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.parsedStyles));
-
+  theme: any = typeof this.styles === 'object' ? this.styles : JSON.parse(this.styles);
+  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.theme));
   @ConstructibleStyle() style = this.stylesheet.toString();
+  componentWillLoad() {
 
-  // tslint:disable-next-line: no-empty
-  componentWillLoad() { }
+  }
 
   /** Button method: disable()  */
   @Method()
@@ -121,7 +118,6 @@ export class Button {
     return classNames(
       classes.button,
       this.size && `${classes.button}--size-${this.size}`,
-      this.theme && `${classes.button}--theme-${this.theme}`,
       this.variant && `${classes.button}--variant-${this.variant}`,
       this.disabled && `${classes.button}--disabled`,
       this.deselected && `${classes.button}--deselected`
