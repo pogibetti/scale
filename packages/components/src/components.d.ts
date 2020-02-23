@@ -100,7 +100,6 @@ export namespace Components {
     * (optional) Injected jss styles
     */
     'styles'?: StyleSheet;
-    'theme'?: any;
     /**
     * (optional) Button variant
     */
@@ -655,7 +654,6 @@ declare namespace LocalJSX {
     * (optional) Injected jss styles
     */
     'styles'?: StyleSheet;
-    'theme'?: any;
     /**
     * (optional) Button variant
     */

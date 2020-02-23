@@ -34,7 +34,7 @@
         Default
     </t-button>
 
-    <t-button id="button-with-styles">
+    <t-button id="button-with-styles" disabled>
         With styles
     </t-button>
     <script>
@@ -43,23 +43,7 @@
             button: {
                 '&--disabled, &--disabled:hover': {
                     color: 'white',
-                    background: 'purple',
-                }
-            }
-        }
-    </script>
-
-    <t-button id="button-with-theme">
-        With theme
-    </t-button>
-
-    <script>
-        const withTheme = document.getElementById('button-with-theme');
-        withTheme.theme = {
-            Button: {
-                button: {
-                    color: 'white',
-                    background: 'lightblue'
+                    background: 'green'
                 }
             }
         }
@@ -74,19 +58,7 @@
         withThemeAndStyles.styles = {
             button: {
                 color: 'white',
-                background: 'purple',
                 padding: '30px'
-            }
-        }
-        withThemeAndStyles.theme = {
-            Button: {
-                button: {
-                    background: 'pink',
-                    border: '2px solid #f00',
-                    borderColor: 'red',
-                    borderRadius: '3rem',
-                    margin: '0 2rem'
-                }
             }
         }
     </script>

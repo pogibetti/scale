@@ -1,8 +1,8 @@
-import { Host, getElement } from '@stencil/core';
-import { VNode, ComponentInterface } from '@stencil/core/dist/declarations';
+import { getElement } from '@stencil/core';
+import { ComponentInterface } from '@stencil/core/dist/declarations';
 import jss, { StyleSheet } from 'jss';
 import preset from 'jss-preset-default';
-import { combineStyles, theme } from '../utils';
+import { combineObjects, theme } from '../utils';
 jss.setup(preset());
 
 const supportsConstructibleStylesheets = (() => {
@@ -18,16 +18,9 @@ declare type CssInJsDecorator = (
   propertyKey: string
 ) => void;
 
-export function CssInJs(
-  styles: object,
-  opts: ConstructibleStyleOptions = {}
-): CssInJsDecorator {
+export function CssInJs(className: string, styles: object): CssInJsDecorator {
   return (target: ComponentInterface, propertyKey: string) => {
-    if (!opts.cacheKeyProperty) {
-      opts.cacheKeyProperty = propertyKey;
-    }
-
-    const { componentWillLoad, render } = target;
+    const { componentWillLoad } = target;
     if (!componentWillLoad) {
       // tslint:disable-next-line: no-console
       console.warn(
@@ -37,12 +30,9 @@ export function CssInJs(
 
     if (supportsConstructibleStylesheets) {
       target.componentWillLoad = function() {
-        const withDefaultTheme = combineStyles(styles, theme().Button);
-        const withThemeOverrides = this.theme
-          ? combineStyles(withDefaultTheme, this.theme.Button)
-          : withDefaultTheme;
+        const withDefaultTheme = combineObjects(styles, theme()[className]);
         const cssText: StyleSheet = jss.createStyleSheet(
-          combineStyles(withThemeOverrides, this.styles)
+          combineObjects(withDefaultTheme, this.styles)
         );
         const willLoadResult =
           componentWillLoad && componentWillLoad.call(this);
@@ -51,64 +41,29 @@ export function CssInJs(
         this[propertyKey] = cssText as StyleSheet;
         root.adoptedStyleSheets = [
           ...(root.adoptedStyleSheets || []),
-          getOrCreateStylesheet(this, target, cssText, opts),
+          getOrCreateStylesheet(this, target, cssText, propertyKey),
         ];
 
         return willLoadResult;
       };
     } else {
-      target.render = function() {
-        const cssText =
-          typeof this[propertyKey] === 'function'
-            ? this[propertyKey]()
-            : this[propertyKey];
-        let renderedNode: VNode = render.call(this);
-
-        if (isHost(renderedNode)) {
-          appendStyleToHost(renderedNode, target.constructor.name, cssText);
-        } else {
-          renderedNode = (`<Host>${renderedNode}</Host>` as unknown) as VNode;
-
-          if (!('attachShadow' in HTMLElement.prototype)) {
-            appendStyleToHost(renderedNode, target.constructor.name, cssText);
-          } else {
-            if (!target.__constructableStyle) {
-              const style = document.createElement('style');
-              style.setAttribute('type', 'text/css');
-              style.setAttribute(
-                'constructible-style',
-                target.constructor.name
-              );
-              style.innerHTML = cssText;
-              target.__constructableStyle = style;
-              document.head.appendChild(style);
-            }
-          }
-        }
-
-        return renderedNode;
-      };
+      // tslint:disable-next-line: no-console
+      return console.log('Something went wrong... CssInJs is not supported');
     }
   };
-}
-
-function appendStyleToHost(node, targetName, cssText) {
-  (getHostChildren(node) || []).push(
-    `<style type="text/css" constructible-style=${targetName}>${cssText}</style>`
-  );
 }
 
 function getOrCreateStylesheet(
   instance: ComponentInterface,
   target: ComponentInterface,
   cssText: StyleSheet,
-  opts: ConstructibleStyleOptions
+  propertyKey: string
 ): CSSStyleSheet {
   if (!target.__constructableStyle) {
     target.__constructableStyle = {};
   }
 
-  const key = instance[opts.cacheKeyProperty];
+  const key = instance[propertyKey];
 
   if (!target.__constructableStyle[key]) {
     target.__constructableStyle[key] = new CSSStyleSheet();
@@ -116,29 +71,4 @@ function getOrCreateStylesheet(
   }
 
   return target.__constructableStyle[key];
-}
-
-function isHost(node): boolean {
-  for (const prop in node) {
-    if (node.hasOwnProperty(prop)) {
-      if (node[prop] === Host) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
-function getHostChildren(node): string[] {
-  for (const prop in node) {
-    if (node.hasOwnProperty(prop)) {
-      if (Array.isArray(node[prop])) {
-        return node[prop];
-      }
-    }
-  }
-}
-
-export interface ConstructibleStyleOptions {
-  cacheKeyProperty?: string;
 }

@@ -1,64 +1,45 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
 import { StyleSheet } from 'jss';
 import classNames from 'classnames';
-import { CssClassMap } from '../../utils/utils';
+import { CssClassMap, theme } from '../../utils/utils';
 import { CssInJs } from '../../utils/decorators/css-in-js';
 import Base from '../../utils/base-interface';
 
-const defaultStyles: object = {
+const { colors } = theme();
+
+const defaultStyles = {
   button: {
     position: 'relative',
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
-    flexShrink: '0',
+    flexShrink: 0,
     verticalAlign: 'middle',
     textAlign: 'center',
     cursor: 'pointer',
     userSelect: 'none',
-    color: 'var(--button-color, #000)',
-    background: 'var(--button-background-color, #fff)',
-    border: 'var(--button-border, 1px solid #000)',
-    borderColor: 'var(--button-border-color, #000)',
-    borderRadius: 'var(--button-border-radius, 0)',
-    padding: 'var(--button-padding, 0.25rem 1rem)',
-    boxShadow: 'var(--button-box-shadow, none)',
-    lineHeight: 'var(--button-line-height, 2rem)',
-    fontFamily: 'var(--button-font-family, unset)',
-    fontSize: 'var(--button-font-size, unset)',
-    fontWeight: 'var(--button-font-weight, 400)',
-    textTransform: 'var(--button-text-transform, initial)',
-    letterSpacing: 'var(--button-letter-spacing, 0)',
-    transition: 'var(--button-transition, all 0.2s ease-in-out)',
-    '&:before': {
-      width: 'var(--button-letter-spacing, 0)',
-      content: "''",
-      display: 'block',
-      height: '100%',
-    },
+    color: '#fff',
+    background: colors.primary,
+    border: '1px solid #000',
+    padding: '0.25rem 1rem',
+    lineHeight: '2rem',
+    transition: 'all 0.2s ease-in-out',
+    fontSize: '1rem',
     '&:hover, &.active': {
-      color: 'var(--button-hover-color, #fff)',
-      background: 'var(--button-hover-background-color, #000)',
-      border: 'var(--button-hover-border, 1px solid #000)',
-      borderColor: 'var(--button-hover-border-color, #000)',
-      borderRadius: 'var(--button-hover-border-radius, 0)',
-      boxShadow: 'var(--button-hover-box-shadow, none)',
-      lineHeight: 'var(--button-hover-line-height, 2rem)',
-      fontSize: 'var(--button-hover-font-size, unset)',
-      fontWeight: 'var(--button-hover-font-weight, 400)',
-      transition: 'var(--button-hover-transition, all 0.2s ease-in-out)',
+      color: '#fff',
+      background: '#000',
+      borderColor: '#000',
+      transition: 'all 0.2s ease-in-out',
       textDecoration: 'none',
     },
     '&:not(.tabbing):focus': {
-      outline: '0',
+      outline: 0,
     },
     '&--disabled, &--disabled:hover': {
-      background:
-        'var(--button-disabled-background-color, var(--button-background-color, #fff))',
-      border:
-        'var(--button-disabled-border, var(--button-border, 1px solid #000))',
-      color: 'var(--button-disabled-color, var(--button-color, #000))',
-      opacity: '0.5',
+      background: '#fff',
+      border: '1px solid #000',
+      color: '#000',
+      opacity: 0.5,
       cursor: 'not-allowed',
     },
   },
@@ -79,9 +60,8 @@ export class Button implements Base {
   @Prop() deselected?: boolean = false;
   /** (optional) Injected jss styles */
   @Prop() styles?: StyleSheet;
-  @Prop() theme?: any;
   /** decorator Jss stylesheet */
-  @CssInJs(defaultStyles) stylesheet: StyleSheet;
+  @CssInJs('Button', defaultStyles) stylesheet: StyleSheet;
 
   /** Button method: componentWillLoad()  */
   componentWillLoad() {}

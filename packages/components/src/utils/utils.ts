@@ -17,5 +17,5 @@ export const css = (
     ''
   );
 
-export const combineStyles = (a: object, b: object): object =>
+export const combineObjects = (a: object, b: object): object =>
   _.merge({}, a, b);

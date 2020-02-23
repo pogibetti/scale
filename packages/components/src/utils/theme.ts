@@ -1,3 +1,5 @@
+import { combineObjects } from './utils';
+
 interface Theme {
   unit: string;
   breakpoints: {
@@ -11,7 +13,7 @@ interface Theme {
   };
 }
 
-export const defaultTheme: Theme = {
+const base: any = {
   unit: 'px',
   breakpoints: {
     mobile: 320,
@@ -19,12 +21,17 @@ export const defaultTheme: Theme = {
     desktop: 1024,
   },
   colors: {
+    primary: 'green',
+    secondary: 'red',
     black: '#000',
     white: '#fff',
   },
+};
+
+export const defaultTheme = {
+  ...base,
   Button: {
     button: {
-      background: 'blue',
       color: '#fff',
       borderRadius: '4px',
     },
@@ -32,12 +39,16 @@ export const defaultTheme: Theme = {
 };
 
 export const theme = (overrides?: Partial<Theme>) => {
-  const injectedTheme = (window as any).theme;
-  if (injectedTheme) {
-    return injectedTheme;
+  const telements = (window as any).telements;
+  if (telements) {
+    const injectedConfig = telements.config;
+    const injectedTheme = telements.theme;
+    if (injectedTheme) {
+      if (injectedConfig && injectedConfig.overrides === false) {
+        return injectedTheme;
+      }
+      return combineObjects(defaultTheme, injectedTheme);
+    }
   }
-  return {
-    ...defaultTheme,
-    ...overrides,
-  };
+  return combineObjects(defaultTheme, overrides);
 };
