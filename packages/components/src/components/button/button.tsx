@@ -1,14 +1,11 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
-import { ConstructibleStyle } from 'stencil-constructible-style';
-import jss from 'jss';
-import { combineStyles } from '../../utils/utils';
-import { CssClassMap } from '../../utils/utils';
+import { StyleSheet } from 'jss';
 import classNames from 'classnames';
-import BaseInterface from './base-interface'
-import { CssInJs } from '../../utils/decoraters/css-in-js';
+import { CssClassMap } from '../../utils/utils';
+import { CssInJs } from '../../utils/decorators/css-in-js';
+import Base from '../../utils/base-interface';
 
-
-const styles: object = {
+const defaultStyles: object = {
   button: {
     position: 'relative',
     display: 'inline-flex',
@@ -71,7 +68,7 @@ const styles: object = {
   tag: 't-button',
   shadow: true,
 })
-export class Button implements BaseInterface {
+export class Button implements Base {
   /** (optional) Button size */
   @Prop() size?: string = '';
   /** (optional) Button variant */
@@ -80,16 +77,13 @@ export class Button implements BaseInterface {
   @Prop() disabled?: boolean = false;
   /** (optional) Deselected button */
   @Prop() deselected?: boolean = false;
-  @Prop() styles?: object = {};
+  /** (optional) Injected jss styles */
+  @Prop() styles?: StyleSheet;
+  /** decorator Jss stylesheet */
+  @CssInJs(defaultStyles) stylesheet: StyleSheet;
 
-  @CssInJs({ color: 'red' }) x = ''
-
-  theme: any = typeof this.styles === 'object' ? this.styles : JSON.parse(this.styles);
-  stylesheet: any = jss.createStyleSheet(combineStyles(styles, this.theme));
-  @ConstructibleStyle() style = this.stylesheet.toString();
-  componentWillLoad() {
-
-  }
+  /** Button method: componentWillLoad()  */
+  componentWillLoad() {}
 
   /** Button method: disable()  */
   @Method()

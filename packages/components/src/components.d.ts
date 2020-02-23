@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  StyleSheet,
+} from 'jss';
+import {
   InputTypes,
 } from './components/input/input';
 
@@ -93,7 +96,10 @@ export namespace Components {
     * (optional) Button size
     */
     'size'?: string;
-    'styles'?: object;
+    /**
+    * (optional) Injected jss styles
+    */
+    'styles'?: StyleSheet;
     /**
     * (optional) Button variant
     */
@@ -644,7 +650,10 @@ declare namespace LocalJSX {
     * (optional) Button size
     */
     'size'?: string;
-    'styles'?: object;
+    /**
+    * (optional) Injected jss styles
+    */
+    'styles'?: StyleSheet;
     /**
     * (optional) Button variant
     */
