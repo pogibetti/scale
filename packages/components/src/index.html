@@ -31,19 +31,15 @@
     <h1>Components</h1>
 
     <t-button>
-        With object
+        Default
     </t-button>
 
-    <t-button id="button-with-styles-object" disabled>
-        With object
-    </t-button>
-
-    <t-button id="button-with-styles-object-2">
-        With object
+    <t-button id="button-with-styles">
+        With styles
     </t-button>
     <script>
-        const withObject = document.getElementById('button-with-styles-object');
-        withObject.styles = {
+        const withStyles = document.getElementById('button-with-styles');
+        withStyles.styles = {
             button: {
                 '&--disabled, &--disabled:hover': {
                     color: 'white',
@@ -51,14 +47,45 @@
                 }
             }
         }
-        const withObject2 = document.getElementById('button-with-styles-object-2');
-        withObject2.styles = {
+    </script>
+
+    <t-button id="button-with-theme">
+        With theme
+    </t-button>
+
+    <script>
+        const withTheme = document.getElementById('button-with-theme');
+        withTheme.theme = {
+            Button: {
+                button: {
+                    color: 'white',
+                    background: 'lightblue'
+                }
+            }
+        }
+    </script>
+
+    <t-button id="button-with-theme-and-styles">
+        With theme and styles
+    </t-button>
+
+    <script>
+        const withThemeAndStyles = document.getElementById('button-with-theme-and-styles');
+        withThemeAndStyles.styles = {
             button: {
                 color: 'white',
-                background: 'pink',
-                '&:hover': {
-                    color: 'black',
-                    background: 'yellow',
+                background: 'purple',
+                padding: '30px'
+            }
+        }
+        withThemeAndStyles.theme = {
+            Button: {
+                button: {
+                    background: 'pink',
+                    border: '2px solid #f00',
+                    borderColor: 'red',
+                    borderRadius: '3rem',
+                    margin: '0 2rem'
                 }
             }
         }

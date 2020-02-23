@@ -2,7 +2,7 @@ import { Host, getElement } from '@stencil/core';
 import { VNode, ComponentInterface } from '@stencil/core/dist/declarations';
 import jss, { StyleSheet } from 'jss';
 import preset from 'jss-preset-default';
-import { combineStyles } from '../utils';
+import { combineStyles, theme } from '../utils';
 jss.setup(preset());
 
 const supportsConstructibleStylesheets = (() => {
@@ -37,8 +37,12 @@ export function CssInJs(
 
     if (supportsConstructibleStylesheets) {
       target.componentWillLoad = function() {
+        const withDefaultTheme = combineStyles(styles, theme().Button);
+        const withThemeOverrides = this.theme
+          ? combineStyles(withDefaultTheme, this.theme.Button)
+          : withDefaultTheme;
         const cssText: StyleSheet = jss.createStyleSheet(
-          combineStyles(styles, this.styles)
+          combineStyles(withThemeOverrides, this.styles)
         );
         const willLoadResult =
           componentWillLoad && componentWillLoad.call(this);

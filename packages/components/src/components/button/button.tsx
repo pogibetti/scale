@@ -79,6 +79,7 @@ export class Button implements Base {
   @Prop() deselected?: boolean = false;
   /** (optional) Injected jss styles */
   @Prop() styles?: StyleSheet;
+  @Prop() theme?: any;
   /** decorator Jss stylesheet */
   @CssInJs(defaultStyles) stylesheet: StyleSheet;
 

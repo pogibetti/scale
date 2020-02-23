@@ -6,6 +6,9 @@ interface Theme {
   colors: {
     [key: string]: string;
   };
+  Button: {
+    [key: string]: string | object;
+  };
 }
 
 export const defaultTheme: Theme = {
@@ -19,9 +22,20 @@ export const defaultTheme: Theme = {
     black: '#000',
     white: '#fff',
   },
+  Button: {
+    button: {
+      background: 'blue',
+      color: '#fff',
+      borderRadius: '4px',
+    },
+  },
 };
 
 export const theme = (overrides?: Partial<Theme>) => {
+  const injectedTheme = (window as any).theme;
+  if (injectedTheme) {
+    return injectedTheme;
+  }
   return {
     ...defaultTheme,
     ...overrides,
