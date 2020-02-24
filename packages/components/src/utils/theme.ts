@@ -21,8 +21,8 @@ const base: any = {
     desktop: 1024,
   },
   colors: {
-    primary: 'green',
-    secondary: 'red',
+    primary: 'blue',
+    secondary: 'lightblue',
     black: '#000',
     white: '#fff',
   },
@@ -32,7 +32,6 @@ export const defaultTheme = {
   ...base,
   Button: {
     button: {
-      color: '#fff',
       borderRadius: '4px',
     },
   },

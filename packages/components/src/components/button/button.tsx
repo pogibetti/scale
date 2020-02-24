@@ -1,11 +1,9 @@
 import { Component, Prop, h, Method, Host } from '@stencil/core';
 import { StyleSheet } from 'jss';
 import classNames from 'classnames';
-import { CssClassMap, theme } from '../../utils/utils';
+import { CssClassMap } from '../../utils/utils';
 import { CssInJs } from '../../utils/decorators/css-in-js';
 import Base from '../../utils/base-interface';
-
-const { colors } = theme();
 
 const defaultStyles = {
   button: {
@@ -18,8 +16,8 @@ const defaultStyles = {
     textAlign: 'center',
     cursor: 'pointer',
     userSelect: 'none',
-    color: '#fff',
-    background: colors.primary,
+    color: '#333',
+    background: '#fff',
     border: '1px solid #000',
     padding: '0.25rem 1rem',
     lineHeight: '2rem',
