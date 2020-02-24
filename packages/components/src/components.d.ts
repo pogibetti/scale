@@ -81,7 +81,7 @@ export namespace Components {
     */
     'deselected'?: boolean;
     /**
-    * Button method: disable()
+    * method: disable()
     */
     'disable': () => Promise<void>;
     /**
@@ -89,7 +89,7 @@ export namespace Components {
     */
     'disabled'?: boolean;
     /**
-    * Button method: enable()
+    * method: enable()
     */
     'enable': () => Promise<void>;
     /**
@@ -130,6 +130,10 @@ export namespace Components {
     * (optional) Card size
     */
     'size'?: string;
+    /**
+    * (optional) Injected jss styles
+    */
+    'styles'?: StyleSheet;
     /**
     * (optional) Card theme
     */
@@ -684,6 +688,10 @@ declare namespace LocalJSX {
     * (optional) Card size
     */
     'size'?: string;
+    /**
+    * (optional) Injected jss styles
+    */
+    'styles'?: StyleSheet;
     /**
     * (optional) Card theme
     */

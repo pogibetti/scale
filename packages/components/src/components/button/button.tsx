@@ -58,21 +58,22 @@ export class Button implements Base {
   @Prop() disabled?: boolean = false;
   /** (optional) Deselected button */
   @Prop() deselected?: boolean = false;
+
   /** (optional) Injected jss styles */
   @Prop() styles?: StyleSheet;
   /** decorator Jss stylesheet */
   @CssInJs('Button', defaultStyles) stylesheet: StyleSheet;
 
-  /** Button method: componentWillLoad()  */
+  /** method: componentWillLoad()  */
   componentWillLoad() {}
 
-  /** Button method: disable()  */
+  /** method: disable()  */
   @Method()
   async disable() {
     this.disabled = true;
   }
 
-  /** Button method: enable()  */
+  /** method: enable()  */
   @Method()
   async enable() {
     this.disabled = false;

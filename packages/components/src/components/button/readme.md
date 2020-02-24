@@ -5,6 +5,16 @@
 <!-- Auto Generated Below -->
 
 
+## Usage
+
+### Button
+
+<t-button>
+	Label
+</t-button>
+
+
+
 ## Properties
 
 | Property     | Attribute    | Description                    | Type                                     | Default     |
@@ -20,7 +30,7 @@
 
 ### `disable() => Promise<void>`
 
-Button method: disable()
+method: disable()
 
 #### Returns
 
@@ -30,7 +40,7 @@ Type: `Promise<void>`
 
 ### `enable() => Promise<void>`
 
-Button method: enable()
+method: enable()
 
 #### Returns
 

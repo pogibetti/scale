@@ -1,5 +1,5 @@
-import { getElement } from '@stencil/core';
-import { ComponentInterface } from '@stencil/core/dist/declarations';
+import { h, getElement } from '@stencil/core';
+import { ComponentInterface, VNode } from '@stencil/core/dist/declarations';
 import jss, { StyleSheet } from 'jss';
 import preset from 'jss-preset-default';
 import { combineObjects, theme } from '../utils';
@@ -31,7 +31,7 @@ export function CssInJs(className: string, styles: object): CssInJsDecorator {
     if (supportsConstructibleStylesheets) {
       target.componentWillLoad = function() {
         const withDefaultTheme = combineObjects(styles, theme()[className]);
-        const cssText: StyleSheet = jss.createStyleSheet(
+        const cssText = jss.createStyleSheet(
           combineObjects(withDefaultTheme, this.styles)
         );
         const willLoadResult =
@@ -40,17 +40,54 @@ export function CssInJs(className: string, styles: object): CssInJsDecorator {
         const root = (host.shadowRoot || host) as any;
         this[propertyKey] = cssText as StyleSheet;
         root.adoptedStyleSheets = [
-          ...(root.adoptedStyleSheets || []),
           getOrCreateStylesheet(this, target, cssText, propertyKey),
         ];
 
+        host.forceUpdate();
+
         return willLoadResult;
+      };
+
+      const { render } = target;
+      target.render = function() {
+        const renderResult = render.call(this);
+        const host = getElement(this);
+        const root = (host.shadowRoot || host) as any;
+
+        const cssRulesArray = root.adoptedStyleSheets[0].cssRules;
+        let cssRules = '';
+        for (let index = 0; index < cssRulesArray.length; index++) {
+          cssRules += `${cssRulesArray[index].cssText
+            .split(', .')
+            .join(',\n.')
+            .split('{ ')
+            .join('{\n  ')
+            .split('; ')
+            .join(';\n  ')
+            .split('  }')
+            .join('}')}\n`;
+        }
+
+        prependStyleNode(
+          renderResult,
+          root.adoptedStyleSheets[0].cssRules[0].selectorText.replace('.', ''),
+          cssRules
+        );
+        return renderResult;
       };
     } else {
       // tslint:disable-next-line: no-console
       return console.log('Something went wrong... CssInJs is not supported');
     }
   };
+}
+
+function prependStyleNode(node: VNode, componentName: string, cssString: any) {
+  (node['$children$'] ?? []).unshift(
+    <style type="text/css" css-in-js={componentName}>
+      {cssString.toString()}
+    </style>
+  );
 }
 
 function getOrCreateStylesheet(
