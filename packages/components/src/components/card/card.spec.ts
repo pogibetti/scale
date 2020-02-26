@@ -1,10 +1,13 @@
 import { newSpecPage } from '@stencil/core/testing';
 import { Card } from './card';
+import jss from 'jss';
+import cardStyles from './card.styles';
 
 describe('Card', () => {
   let element;
   beforeEach(async () => {
     element = new Card();
+    element.stylesheet = jss.createStyleSheet(cardStyles as any);
   });
 
   it('should match snapshot', async () => {
@@ -50,31 +53,34 @@ describe('Card', () => {
   });
 
   it('should have a default css class', () => {
-    expect(element.getCssClassMap()).toBe('card');
+    expect(element.getCssClassMap()).toBe(element.stylesheet.classes.card);
   });
 
   it('should handle size css class', () => {
     element.size = 'small';
-    expect(element.getCssClassMap()).toContain('card--size-small');
-  });
-
-  it('should handle theme css class', () => {
-    element.theme = 'default';
-    expect(element.getCssClassMap()).toContain('card--theme-default');
+    expect(element.getCssClassMap()).toContain(
+      `${element.stylesheet.classes.card}--size-small`
+    );
   });
 
   it('should handle variant css class', () => {
     element.variant = 'primary';
-    expect(element.getCssClassMap()).toContain('card--variant-primary');
+    expect(element.getCssClassMap()).toContain(
+      `${element.stylesheet.classes.card}--variant-primary`
+    );
   });
 
   it('should handle disabled css class', () => {
     element.disabled = true;
-    expect(element.getCssClassMap()).toContain('card--disabled');
+    expect(element.getCssClassMap()).toContain(
+      `${element.stylesheet.classes.card}--disabled`
+    );
   });
 
   it('should handle deselected css class', () => {
     element.deselected = true;
-    expect(element.getCssClassMap()).toContain('card--deselected');
+    expect(element.getCssClassMap()).toContain(
+      `${element.stylesheet.classes.card}--deselected`
+    );
   });
 });

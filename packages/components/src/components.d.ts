@@ -135,10 +135,6 @@ export namespace Components {
     */
     'styles'?: StyleSheet;
     /**
-    * (optional) Card theme
-    */
-    'theme'?: string;
-    /**
     * (optional) Card variant
     */
     'variant'?: string;
@@ -174,10 +170,6 @@ export namespace Components {
     'customClass'?: string;
     'name': string;
     'path': string;
-    /**
-    * (optional) Tag theme
-    */
-    'theme'?: string;
   }
   interface TInput {
     /**
@@ -693,10 +685,6 @@ declare namespace LocalJSX {
     */
     'styles'?: StyleSheet;
     /**
-    * (optional) Card theme
-    */
-    'theme'?: string;
-    /**
     * (optional) Card variant
     */
     'variant'?: string;
@@ -732,10 +720,6 @@ declare namespace LocalJSX {
     'customClass'?: string;
     'name'?: string;
     'path'?: string;
-    /**
-    * (optional) Tag theme
-    */
-    'theme'?: string;
   }
   interface TInput {
     /**

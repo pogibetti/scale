@@ -1,6 +1,16 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h, Host } from '@stencil/core';
 import { CssClassMap } from '../../utils/utils';
 import classNames from 'classnames';
+import jss from 'jss';
+import preset from 'jss-preset-default';
+
+jss.setup(preset());
+
+const styles = {
+  icon: {
+    background: 'red',
+  },
+};
 
 @Component({
   tag: 't-icon',
@@ -9,30 +19,36 @@ import classNames from 'classnames';
 export class Icon {
   /** (optional) Tag class */
   @Prop() public customClass?: string = '';
-  /** (optional) Tag theme */
-  @Prop() public theme?: string = '';
   @Prop() public name: string;
   @Prop() public path: string;
 
+  stylesheet: any;
+
+  componentWillLoad() {
+    this.stylesheet = jss.createStyleSheet(styles);
+  }
+
   public render() {
     return (
-      <svg
-        class={this.getCssClassMap()}
-        width="24"
-        height="24"
-        viewBox="0 0 26 26"
-      >
-        <path d={this.path} stroke="black" fill="transparent" />
-      </svg>
+      <Host>
+        <style>{this.stylesheet.toString()}</style>
+        <svg
+          class={this.getCssClassMap()}
+          width="24"
+          height="24"
+          viewBox="0 0 26 26"
+        >
+          <path d={this.path} stroke="black" fill="transparent" />
+        </svg>
+      </Host>
     );
   }
 
   private getCssClassMap(): CssClassMap {
     return classNames(
-      'icon',
+      this.stylesheet.classes.icon,
       this.name && this.name,
-      this.customClass && this.customClass,
-      this.theme && `icon--theme-${this.theme}`
+      this.customClass && this.customClass
     );
   }
 }

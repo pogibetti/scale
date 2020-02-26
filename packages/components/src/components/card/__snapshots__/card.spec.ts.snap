@@ -3,8 +3,42 @@
 exports[`Card should match snapshot 1`] = `
 <t-card>
   <mock:shadow-root>
-    <div class="card">
-      <div class="card__body">
+    <style>
+      .card-0-0-6 {
+  color: #333;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 550px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.card__body-0-0-7 {
+  padding: 1rem;
+}
+.card__header-0-0-8 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-bottom: 1px solid, #dfdfdf;
+}
+.card__header-0-0-8::slotted(*) {
+  margin: 0;
+}
+.card__footer-0-0-9 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-top: 1px solid #dfdfdf;
+}
+.card__footer-0-0-9::slotted(*) {
+  margin: 0;
+}
+    </style>
+    <div class="card-0-0-6">
+      <div class="card__body-0-0-7">
         <slot></slot>
       </div>
     </div>
@@ -16,11 +50,45 @@ exports[`Card should match snapshot 1`] = `
 exports[`Card should match snapshot with footer slot 1`] = `
 <t-card>
   <mock:shadow-root>
-    <div class="card">
-      <div class="card__body">
+    <style>
+      .card-0-0-26 {
+  color: #333;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 550px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.card__body-0-0-27 {
+  padding: 1rem;
+}
+.card__header-0-0-28 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-bottom: 1px solid, #dfdfdf;
+}
+.card__header-0-0-28::slotted(*) {
+  margin: 0;
+}
+.card__footer-0-0-29 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-top: 1px solid #dfdfdf;
+}
+.card__footer-0-0-29::slotted(*) {
+  margin: 0;
+}
+    </style>
+    <div class="card-0-0-26">
+      <div class="card__body-0-0-27">
         <slot></slot>
       </div>
-      <div class="card__footer">
+      <div class="card__footer-0-0-29">
         <slot name="footer"></slot>
       </div>
     </div>
@@ -35,11 +103,45 @@ exports[`Card should match snapshot with footer slot 1`] = `
 exports[`Card should match snapshot with header slot 1`] = `
 <t-card>
   <mock:shadow-root>
-    <div class="card">
-      <div class="card__header">
+    <style>
+      .card-0-0-16 {
+  color: #333;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 550px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.card__body-0-0-17 {
+  padding: 1rem;
+}
+.card__header-0-0-18 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-bottom: 1px solid, #dfdfdf;
+}
+.card__header-0-0-18::slotted(*) {
+  margin: 0;
+}
+.card__footer-0-0-19 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-top: 1px solid #dfdfdf;
+}
+.card__footer-0-0-19::slotted(*) {
+  margin: 0;
+}
+    </style>
+    <div class="card-0-0-16">
+      <div class="card__header-0-0-18">
         <slot name="header"></slot>
       </div>
-      <div class="card__body">
+      <div class="card__body-0-0-17">
         <slot></slot>
       </div>
     </div>
@@ -54,9 +156,43 @@ exports[`Card should match snapshot with header slot 1`] = `
 exports[`Card should match snapshot with image 1`] = `
 <t-card image-top="http://placehold.it/400x300">
   <mock:shadow-root>
-    <div class="card">
-      <img alt="" class="card__img-top" src="http://placehold.it/400x300">
-      <div class="card__body">
+    <style>
+      .card-0-0-36 {
+  color: #333;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 550px;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.card__body-0-0-37 {
+  padding: 1rem;
+}
+.card__header-0-0-38 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-bottom: 1px solid, #dfdfdf;
+}
+.card__header-0-0-38::slotted(*) {
+  margin: 0;
+}
+.card__footer-0-0-39 {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  background: #eee;
+  border-top: 1px solid #dfdfdf;
+}
+.card__footer-0-0-39::slotted(*) {
+  margin: 0;
+}
+    </style>
+    <div class="card-0-0-36">
+      <img alt="" class="card__img-top-0-0-40" src="http://placehold.it/400x300">
+      <div class="card__body-0-0-37">
         <slot></slot>
       </div>
     </div>

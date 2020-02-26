@@ -16,7 +16,6 @@
 | `imageTopAlt` | `image-top-alt` | (optional) Card image alternative at the top | `string`                                 | `''`        |
 | `size`        | `size`          | (optional) Card size                         | `string`                                 | `''`        |
 | `styles`      | --              | (optional) Injected jss styles               | `StyleSheet<string \| number \| symbol>` | `undefined` |
-| `theme`       | `theme`         | (optional) Card theme                        | `string`                                 | `''`        |
 | `variant`     | `variant`       | (optional) Card variant                      | `string`                                 | `''`        |
 
 
