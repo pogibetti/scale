@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableCard should match snapshot 1`] = `
+<t-table-card>
+  <mock:shadow-root>
+    <table class="table-card"></table>
+  </mock:shadow-root>
+  Label
+</t-table-card>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should match snapshot 1`] = `
+<t-pagination>
+  <mock:shadow-root>
+    <div class="pagination">
+      <ul class="fillup">
+        <li class="active">
+          <a href="#">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            About
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </div>
+  </mock:shadow-root>
+  Label
+</t-pagination>
+`;

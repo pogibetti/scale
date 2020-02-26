@@ -288,6 +288,16 @@ export namespace Components {
     */
     'variant'?: string;
   }
+  interface TPagination {
+    /**
+    * (optional) Tag class
+    */
+    'customClass'?: string;
+    /**
+    * (optional) Tag theme
+    */
+    'theme'?: string;
+  }
   interface TProgressBar {
     /**
     * (optional) Progress bar class
@@ -534,6 +544,12 @@ declare global {
     new (): HTMLTModalElement;
   };
 
+  interface HTMLTPaginationElement extends Components.TPagination, HTMLStencilElement {}
+  var HTMLTPaginationElement: {
+    prototype: HTMLTPaginationElement;
+    new (): HTMLTPaginationElement;
+  };
+
   interface HTMLTProgressBarElement extends Components.TProgressBar, HTMLStencilElement {}
   var HTMLTProgressBarElement: {
     prototype: HTMLTProgressBarElement;
@@ -589,6 +605,7 @@ declare global {
     't-input-label': HTMLTInputLabelElement;
     't-link': HTMLTLinkElement;
     't-modal': HTMLTModalElement;
+    't-pagination': HTMLTPaginationElement;
     't-progress-bar': HTMLTProgressBarElement;
     't-slider': HTMLTSliderElement;
     't-switch': HTMLTSwitchElement;
@@ -860,6 +877,16 @@ declare namespace LocalJSX {
     */
     'variant'?: string;
   }
+  interface TPagination {
+    /**
+    * (optional) Tag class
+    */
+    'customClass'?: string;
+    /**
+    * (optional) Tag theme
+    */
+    'theme'?: string;
+  }
   interface TProgressBar {
     /**
     * (optional) Progress bar class
@@ -1034,6 +1061,7 @@ declare namespace LocalJSX {
     't-input-label': TInputLabel;
     't-link': TLink;
     't-modal': TModal;
+    't-pagination': TPagination;
     't-progress-bar': TProgressBar;
     't-slider': TSlider;
     't-switch': TSwitch;
@@ -1063,6 +1091,7 @@ declare module "@stencil/core" {
       't-input-label': LocalJSX.TInputLabel & JSXBase.HTMLAttributes<HTMLTInputLabelElement>;
       't-link': LocalJSX.TLink & JSXBase.HTMLAttributes<HTMLTLinkElement>;
       't-modal': LocalJSX.TModal & JSXBase.HTMLAttributes<HTMLTModalElement>;
+      't-pagination': LocalJSX.TPagination & JSXBase.HTMLAttributes<HTMLTPaginationElement>;
       't-progress-bar': LocalJSX.TProgressBar & JSXBase.HTMLAttributes<HTMLTProgressBarElement>;
       't-slider': LocalJSX.TSlider & JSXBase.HTMLAttributes<HTMLTSliderElement>;
       't-switch': LocalJSX.TSwitch & JSXBase.HTMLAttributes<HTMLTSwitchElement>;
