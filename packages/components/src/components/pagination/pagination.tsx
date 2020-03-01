@@ -12,23 +12,17 @@ export class Pagination {
   @Prop() public customClass?: string = '';
   /** (optional) Tag theme */
   @Prop() public theme?: string = '';
+  @Prop() public pagesArray = [];
 
   public render() {
     return (
       <div class={this.getCssClassMap()}>
         <ul class="fillup">
-          <li class="active">
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Products</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
+          {this.pagesArray.map(index => (
+            <li key={index}>
+              <a href="#">home</a>
+            </li>
+          ))}
         </ul>
       </div>
     );
