@@ -72,6 +72,9 @@ export namespace Components {
     */
     'variant'?: string;
   }
+  interface TBreadcrumb {
+    'customClass'?: string;
+  }
   interface TButton {
     /**
     * (optional) Button class
@@ -457,6 +460,12 @@ declare global {
     new (): HTMLTBadgeElement;
   };
 
+  interface HTMLTBreadcrumbElement extends Components.TBreadcrumb, HTMLStencilElement {}
+  var HTMLTBreadcrumbElement: {
+    prototype: HTMLTBreadcrumbElement;
+    new (): HTMLTBreadcrumbElement;
+  };
+
   interface HTMLTButtonElement extends Components.TButton, HTMLStencilElement {}
   var HTMLTButtonElement: {
     prototype: HTMLTButtonElement;
@@ -561,6 +570,7 @@ declare global {
   interface HTMLElementTagNameMap {
     't-alert': HTMLTAlertElement;
     't-badge': HTMLTBadgeElement;
+    't-breadcrumb': HTMLTBreadcrumbElement;
     't-button': HTMLTButtonElement;
     't-card': HTMLTCardElement;
     't-carousel': HTMLTCarouselElement;
@@ -637,6 +647,9 @@ declare namespace LocalJSX {
     * (optional) Badge variant
     */
     'variant'?: string;
+  }
+  interface TBreadcrumb {
+    'customClass'?: string;
   }
   interface TButton {
     /**
@@ -994,6 +1007,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     't-alert': TAlert;
     't-badge': TBadge;
+    't-breadcrumb': TBreadcrumb;
     't-button': TButton;
     't-card': TCard;
     't-carousel': TCarousel;
@@ -1022,6 +1036,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       't-alert': LocalJSX.TAlert & JSXBase.HTMLAttributes<HTMLTAlertElement>;
       't-badge': LocalJSX.TBadge & JSXBase.HTMLAttributes<HTMLTBadgeElement>;
+      't-breadcrumb': LocalJSX.TBreadcrumb & JSXBase.HTMLAttributes<HTMLTBreadcrumbElement>;
       't-button': LocalJSX.TButton & JSXBase.HTMLAttributes<HTMLTButtonElement>;
       't-card': LocalJSX.TCard & JSXBase.HTMLAttributes<HTMLTCardElement>;
       't-carousel': LocalJSX.TCarousel & JSXBase.HTMLAttributes<HTMLTCarouselElement>;
