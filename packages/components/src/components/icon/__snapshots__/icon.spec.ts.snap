@@ -20,7 +20,7 @@ path {
 }
     </style>
     <svg class="icon-0-0-2" height="24" viewBox="0 0 26 26" width="24">
-      <path d="m 10 10" fill="transparent" stroke="black"></path>
+      <path d="m 10 10" fill="transparent"></path>
     </svg>
   </mock:shadow-root>
   Label

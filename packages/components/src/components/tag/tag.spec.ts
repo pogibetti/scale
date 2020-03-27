@@ -40,7 +40,7 @@ describe('Tag', () => {
     element.pill = true;
     expect(element.getCssClassMap()).toContain(stylesheet.classes['tag--pill']);
 
-    element.link = true;
+    element.href = true;
     expect(element.getCssClassMap()).toContain(stylesheet.classes['tag--link']);
   });
 });

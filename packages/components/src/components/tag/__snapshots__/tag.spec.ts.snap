@@ -36,9 +36,9 @@ exports[`Tag should have a link 1`] = `
   border-color: #007bff;
 }
     </style>
-    <a class="tag--link-0-0-15 tag-0-0-13" href="#">
+    <div class="tag-0-0-13">
       <slot></slot>
-    </a>
+    </div>
   </mock:shadow-root>
   Label
 </scale-tag>
