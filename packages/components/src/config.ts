@@ -9,3 +9,5 @@ export const applyConfig = config =>
     ...(window as any).scale,
     config,
   });
+
+export const getTheme = () => (window as any).scale.theme;
