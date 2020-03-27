@@ -189,12 +189,12 @@ export namespace Components {
   interface ScaleIcon {
     'color'?: string;
     /**
-    * (optional) Tag class
+    * (optional) Icon class
     */
     'customClass'?: string;
     'height'?: number;
     /**
-    * (optional) Tag theme
+    * (optional) Icon theme
     */
     'name'?: string;
     'path': string;
@@ -419,7 +419,7 @@ export namespace Components {
     /**
     * (optional) Tag on an <a> element
     */
-    'link'?: string;
+    'href'?: string;
     /**
     * (optional) Tag pill
     */
@@ -797,12 +797,12 @@ declare namespace LocalJSX {
   interface ScaleIcon {
     'color'?: string;
     /**
-    * (optional) Tag class
+    * (optional) Icon class
     */
     'customClass'?: string;
     'height'?: number;
     /**
-    * (optional) Tag theme
+    * (optional) Icon theme
     */
     'name'?: string;
     'path'?: string;
@@ -1023,7 +1023,7 @@ declare namespace LocalJSX {
     /**
     * (optional) Tag on an <a> element
     */
-    'link'?: string;
+    'href'?: string;
     /**
     * (optional) Tag pill
     */

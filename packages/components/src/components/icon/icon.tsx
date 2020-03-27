@@ -11,15 +11,15 @@ import Base from '../../utils/base-interface';
   shadow: true,
 })
 export class Icon implements Base {
-  /** (optional) Tag class */
+  /** (optional) Icon class */
   @Prop() customClass?: string = '';
-  /** (optional) Tag theme */
+  /** (optional) Icon theme */
   @Prop() name?: string;
   @Prop() path: string;
   @Prop() size?: number;
   @Prop() height?: number = 24;
   @Prop() width?: number = 24;
-  @Prop() color?: string = 'black';
+  @Prop() color?: string;
 
   /** (optional) Injected jss styles */
   @Prop() styles?: StyleSheet;

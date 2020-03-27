@@ -18,7 +18,7 @@ export class Tag implements Base {
   /** (optional) Tag pill */
   @Prop() pill?: boolean = false;
   /** (optional) Tag on an <a> element */
-  @Prop() link?: string = '';
+  @Prop() href?: string = '';
 
   /** (optional) Injected jss styles */
   @Prop() styles?: StyleSheet;
@@ -32,8 +32,8 @@ export class Tag implements Base {
     return (
       <Host>
         <style>{this.stylesheet.toString()}</style>
-        {!!this.link ? (
-          <a href={this.link} class={this.getCssClassMap()}>
+        {!!this.href ? (
+          <a href={this.href} class={this.getCssClassMap()}>
             <slot />
           </a>
         ) : (
@@ -52,7 +52,7 @@ export class Tag implements Base {
       this.customClass && this.customClass,
       this.variant && classes[`tag--variant-${this.variant}`],
       this.pill && classes[`tag--pill`],
-      !!this.link && classes[`tag--link`]
+      !!this.href && classes[`tag--link`]
     );
   }
 }

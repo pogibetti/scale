@@ -66,4 +66,9 @@ export const styles: JssStyle = {
     height: 40,
     width: 40,
   },
+  'button--size-small': {
+    minHeight: 32,
+    fontSize: 12,
+    lineHeight: '16px',
+  },
 };
