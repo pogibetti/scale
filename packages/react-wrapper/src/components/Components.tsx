@@ -159,6 +159,30 @@ interface LinkProps {
 const Link: React.FunctionComponent<LinkProps> = props => (
   <WebComponentWrapper component='scale-link' {...props} />
 )
+interface ListProps {
+  // Web-component props
+  styles?: StyleSheet<string | number | symbol>
+  variant?: string
+  // Allow custom props not yet specified in the types e.g. events onClick etc.
+  // TODO: Find a possibility to only allow relevant types e.g. Button = onClick, onFocus etc.
+  [key: string]: any
+}
+const List: React.FunctionComponent<ListProps> = props => (
+  <WebComponentWrapper component='scale-list' {...props} />
+)
+interface ListItemProps {
+  // Web-component props
+  icon?: string
+  iconSize?: number
+  styles?: StyleSheet<string | number | symbol>
+  type?: string
+  // Allow custom props not yet specified in the types e.g. events onClick etc.
+  // TODO: Find a possibility to only allow relevant types e.g. Button = onClick, onFocus etc.
+  [key: string]: any
+}
+const ListItem: React.FunctionComponent<ListItemProps> = props => (
+  <WebComponentWrapper component='scale-list-item' {...props} />
+)
 interface ModalProps {
   // Web-component props
   customClass?: string
@@ -285,6 +309,8 @@ export {
   Icon,
   Input,
   Link,
+  List,
+  ListItem,
   Modal,
   ProgressBar,
   Slider,

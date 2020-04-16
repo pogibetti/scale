@@ -85,6 +85,8 @@ var Input = function (props) { return (createElement(WebComponentWrapper, __assi
         onKeyDown: 'keyDownEvent'
     }, component: 'scale-input' }, props))); };
 var Link = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-link' }, props))); };
+var List = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-list' }, props))); };
+var ListItem = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-list-item' }, props))); };
 var Modal = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-modal' }, props))); };
 var ProgressBar = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-progress-bar' }, props))); };
 var Slider = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-slider' }, props))); };
@@ -93,5 +95,5 @@ var Tag = function (props) { return (createElement(WebComponentWrapper, __assign
 var Text = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-text' }, props))); };
 var Toast = function (props) { return (createElement(WebComponentWrapper, __assign({ component: 'scale-toast' }, props))); };
 
-export { Alert, Button, Card, Carousel, Divider, Icon, Input, Link, Modal, ProgressBar, Slider, Switch, Tag, Text, Toast };
+export { Alert, Button, Card, Carousel, Divider, Icon, Input, Link, List, ListItem, Modal, ProgressBar, Slider, Switch, Tag, Text, Toast };
 //# sourceMappingURL=index.es.js.map

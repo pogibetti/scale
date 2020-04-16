@@ -289,13 +289,29 @@ export namespace Components {
         "variant"?: string;
     }
     interface ScaleList {
-        "listStyleType"?: string;
+        "styles"?: StyleSheet;
+        /**
+          * (optional) List variant
+         */
+        "variant"?: string;
+    }
+    interface ScaleListItem {
+        /**
+          * (optional) List item icon
+         */
+        "icon"?: string;
+        /**
+          * (optional) list Icon size
+         */
+        "iconSize"?: number;
         /**
           * (optional) Injected jss styles
          */
         "styles"?: StyleSheet;
+        /**
+          * (optional) List item style type
+         */
         "type"?: string;
-        "variant"?: string;
     }
     interface ScaleModal {
         /**
@@ -563,6 +579,12 @@ declare global {
         prototype: HTMLScaleListElement;
         new (): HTMLScaleListElement;
     };
+    interface HTMLScaleListItemElement extends Components.ScaleListItem, HTMLStencilElement {
+    }
+    var HTMLScaleListItemElement: {
+        prototype: HTMLScaleListItemElement;
+        new (): HTMLScaleListItemElement;
+    };
     interface HTMLScaleModalElement extends Components.ScaleModal, HTMLStencilElement {
     }
     var HTMLScaleModalElement: {
@@ -615,6 +637,7 @@ declare global {
         "scale-input": HTMLScaleInputElement;
         "scale-link": HTMLScaleLinkElement;
         "scale-list": HTMLScaleListElement;
+        "scale-list-item": HTMLScaleListItemElement;
         "scale-modal": HTMLScaleModalElement;
         "scale-progress-bar": HTMLScaleProgressBarElement;
         "scale-slider": HTMLScaleSliderElement;
@@ -902,13 +925,29 @@ declare namespace LocalJSX {
         "variant"?: string;
     }
     interface ScaleList {
-        "listStyleType"?: string;
+        "styles"?: StyleSheet;
+        /**
+          * (optional) List variant
+         */
+        "variant"?: string;
+    }
+    interface ScaleListItem {
+        /**
+          * (optional) List item icon
+         */
+        "icon"?: string;
+        /**
+          * (optional) list Icon size
+         */
+        "iconSize"?: number;
         /**
           * (optional) Injected jss styles
          */
         "styles"?: StyleSheet;
+        /**
+          * (optional) List item style type
+         */
         "type"?: string;
-        "variant"?: string;
     }
     interface ScaleModal {
         /**
@@ -1119,6 +1158,7 @@ declare namespace LocalJSX {
         "scale-input": ScaleInput;
         "scale-link": ScaleLink;
         "scale-list": ScaleList;
+        "scale-list-item": ScaleListItem;
         "scale-modal": ScaleModal;
         "scale-progress-bar": ScaleProgressBar;
         "scale-slider": ScaleSlider;
@@ -1141,6 +1181,7 @@ declare module "@stencil/core" {
             "scale-input": LocalJSX.ScaleInput & JSXBase.HTMLAttributes<HTMLScaleInputElement>;
             "scale-link": LocalJSX.ScaleLink & JSXBase.HTMLAttributes<HTMLScaleLinkElement>;
             "scale-list": LocalJSX.ScaleList & JSXBase.HTMLAttributes<HTMLScaleListElement>;
+            "scale-list-item": LocalJSX.ScaleListItem & JSXBase.HTMLAttributes<HTMLScaleListItemElement>;
             "scale-modal": LocalJSX.ScaleModal & JSXBase.HTMLAttributes<HTMLScaleModalElement>;
             "scale-progress-bar": LocalJSX.ScaleProgressBar & JSXBase.HTMLAttributes<HTMLScaleProgressBarElement>;
             "scale-slider": LocalJSX.ScaleSlider & JSXBase.HTMLAttributes<HTMLScaleSliderElement>;

@@ -33,12 +33,12 @@
       const variants = {
         custom: {
           background: 'pink',
-          borderColor: 'pink'
-        }
-      }
+          borderColor: 'pink',
+        },
+      };
       scale.useTheme({
         shape: {
-          borderRadius: 4
+          borderRadius: 4,
         },
         typography: {
           variants: {
@@ -50,18 +50,19 @@
         },
         components: {
           Button: {
-            'button--variant-custom': variants.custom
+            'button--variant-custom': variants.custom,
           },
           Tag: {
-            'tag--variant-custom': variants.custom
-          }
-        }
-      })
+            'tag--variant-custom': variants.custom,
+          },
+        },
+      });
     </script>
   </head>
 
   <body>
-    <h1>Components</h1><h3>Tag</h3>
+    <h1>Components</h1>
+    <h3>Tag</h3>
 
     <button id="change">Change</button>
 
@@ -73,13 +74,13 @@
         document.getElementById('change-input').styles = {
           input: {
             '& .input__input': {
-              color: 'blue'
-            }
-          }
-        }
-      })
+              color: 'blue',
+            },
+          },
+        };
+      });
     </script>
-    
+
     <h3>Static input with label</h3>
     <scale-input variant="static" label="Text"></scale-input>
 
@@ -87,11 +88,7 @@
     <scale-input label="First Name" placeholder="Hello"></scale-input>
 
     <h3>Animated input - max length and counter</h3>
-    <scale-input
-      label="Last Name"
-      max-length="24"
-      counter
-    ></scale-input>
+    <scale-input label="Last Name" max-length="24" counter></scale-input>
 
     <h3>Input Text - helper text</h3>
     <scale-input
@@ -104,15 +101,13 @@
     <button id="show-error">Toggle error</button>
     <script>
       document.getElementById('show-error').addEventListener('click', () => {
-        const input = document.getElementById('input-error')
+        const input = document.getElementById('input-error');
         if (input.status === 'error') {
-          input.status = undefined,
-          input.helperText = undefined
+          (input.status = undefined), (input.helperText = undefined);
         } else {
-          input.status = 'error',
-          input.helperText = 'Some error happened'
+          (input.status = 'error'), (input.helperText = 'Some error happened');
         }
-      })
+      });
     </script>
     <h3>Input Text - helper text</h3>
     <scale-input
@@ -157,10 +152,10 @@
 
     <h3>Input hidden</h3>
     <scale-input type="hidden"></scale-input>
-    
+
     <h3>Input small</h3>
     <scale-input size="small"></scale-input>
-    
+
     <h3>Input small animated</h3>
     <scale-input label="Name" size="small"></scale-input>
 
@@ -174,7 +169,13 @@
     <h3>Tag - dismissable</h3>
     <scale-tag dismissable>tag dismissable</scale-tag>
     <h3>Tag - dismissable with link</h3>
-    <scale-tag id="tag-dismissable" dismissable href="http://example.com" target="_blank">tag dismissable</scale-tag>
+    <scale-tag
+      id="tag-dismissable"
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      >tag dismissable</scale-tag
+    >
     <h3>Tag - small</h3>
     <scale-tag size="small">Small</scale-tag>
     <h3>Tag - small dismissable</h3>
@@ -192,21 +193,77 @@
     <scale-tag variant="success">tag</scale-tag>
     <scale-tag variant="custom">tag</scale-tag>
     <h3>Tag - variants link</h3>
-    <scale-tag href="http://example.com" target="_blank" variant="primary">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="secondary">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="error">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="warning">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="info">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="success">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="custom">tag</scale-tag>
+    <scale-tag href="http://example.com" target="_blank" variant="primary"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="secondary"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="error"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="warning"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="info"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="success"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="custom"
+      >tag</scale-tag
+    >
     <h3>Tag - variants link dismissable</h3>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="primary">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="secondary">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="error">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="warning">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="info">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="success">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="custom">tag</scale-tag>
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="primary"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="secondary"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="error"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="warning"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="info"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="success"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="custom"
+      >tag</scale-tag
+    >
     <h3>Tag - dismissable</h3>
     <scale-tag variant="primary" dismissable>tag</scale-tag>
     <scale-tag variant="secondary" dismissable>tag</scale-tag>
@@ -228,30 +285,51 @@
     <scale-tag size="small" variant="warning" dismissable>tag</scale-tag>
     <scale-tag size="small" variant="info" dismissable>tag</scale-tag>
     <scale-tag size="small" variant="success" dismissable>tag</scale-tag>
-    
+
     <script>
-      document.getElementById('tag-dismissable').addEventListener('close', (event) => console.log('Tag closed', event))
+      document
+        .getElementById('tag-dismissable')
+        .addEventListener('close', event => console.log('Tag closed', event));
     </script>
 
     <h3>List ordered</h3>
-    <scale-list variant="ordered" type="I">
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
-    </scale-list>
-    
-    <h3>List unordered</h3>
-    <scale-list variant="ordered" type="I" list-style-type="circle">
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
+    <scale-list variant="ordered">
+      <scale-list-item type="upper-alpha">One</scale-list-item>
+      <scale-list-item type="upper-alpha">Two</scale-list-item>
+      <scale-list-item type="upper-alpha">Three</scale-list-item>
     </scale-list>
 
     <h3>List unordered</h3>
-    <scale-list type="I" list-style-type="square">
-      <li>One</li>
-      <li>Two</li>
-      <li>Three</li>
+    <scale-list variant="unordered">
+      <scale-list-item type="circle">one</scale-list-item>
+      <scale-list-item type="circle">Two</scale-list-item>
+      <scale-list-item type="circle">Three</scale-list-item>
+    </scale-list>
+
+    <h3>List ordered</h3>
+    <scale-list variant="ordered">
+      <scale-list-item type="decimal">one</scale-list-item>
+      <scale-list-item type="decimal">Two</scale-list-item>
+      <scale-list-item type="decimal">Three</scale-list-item>
+    </scale-list>
+
+    <h3>List with icon</h3>
+    <scale-list>
+      <scale-list-item
+        icon-size="16"
+        icon="M1.96037164,4.76348599 C2.20704822,4.51686874 2.59887783,4.50393445 2.86078044,4.72465004 L2.90318067,4.76359939 L7.84414654,9.70597854 L12.7871377,4.7635427 C13.0337846,4.51689577 13.4256126,4.50391434 13.6875418,4.72459843 L13.7299467,4.76354268 C13.9765936,5.01018959 13.9895751,5.40201764 13.768891,5.66394679 L13.7299467,5.70635172 L7.84442319,11.5918755 L1.96025825,5.70629503 C1.69994003,5.44591419 1.6999908,5.02380421 1.96037164,4.76348599 Z"
+        >Apple</scale-list-item
+      >
+      <scale-list-item
+        icon-size="16"
+        icon="M1.96037164,4.76348599 C2.20704822,4.51686874 2.59887783,4.50393445 2.86078044,4.72465004 L2.90318067,4.76359939 L7.84414654,9.70597854 L12.7871377,4.7635427 C13.0337846,4.51689577 13.4256126,4.50391434 13.6875418,4.72459843 L13.7299467,4.76354268 C13.9765936,5.01018959 13.9895751,5.40201764 13.768891,5.66394679 L13.7299467,5.70635172 L7.84442319,11.5918755 L1.96025825,5.70629503 C1.69994003,5.44591419 1.6999908,5.02380421 1.96037164,4.76348599 Z"
+        >Microsoft</scale-list-item
+      >
+      <scale-list-item
+        icon-size="16"
+        icon="M1.96037164,4.76348599 C2.20704822,4.51686874 2.59887783,4.50393445 2.86078044,4.72465004 L2.90318067,4.76359939 L7.84414654,9.70597854 L12.7871377,4.7635427 C13.0337846,4.51689577 13.4256126,4.50391434 13.6875418,4.72459843 L13.7299467,4.76354268 C13.9765936,5.01018959 13.9895751,5.40201764 13.768891,5.66394679 L13.7299467,5.70635172 L7.84442319,11.5918755 L1.96025825,5.70629503 C1.69994003,5.44591419 1.6999908,5.02380421 1.96037164,4.76348599 Z"
+        >Google</scale-list-item
+      >
     </scale-list>
 
     <h3>Text</h3>

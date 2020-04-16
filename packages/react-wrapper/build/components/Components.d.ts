@@ -106,6 +106,20 @@ interface LinkProps {
     [key: string]: any;
 }
 declare const Link: React.FunctionComponent<LinkProps>;
+interface ListProps {
+    styles?: StyleSheet<string | number | symbol>;
+    variant?: string;
+    [key: string]: any;
+}
+declare const List: React.FunctionComponent<ListProps>;
+interface ListItemProps {
+    icon?: string;
+    iconSize?: number;
+    styles?: StyleSheet<string | number | symbol>;
+    type?: string;
+    [key: string]: any;
+}
+declare const ListItem: React.FunctionComponent<ListItemProps>;
 interface ModalProps {
     customClass?: string;
     opened?: boolean;
@@ -181,4 +195,4 @@ interface ToastProps {
     [key: string]: any;
 }
 declare const Toast: React.FunctionComponent<ToastProps>;
-export { Alert, Button, Card, Carousel, Divider, Icon, Input, Link, Modal, ProgressBar, Slider, Switch, Tag, Text, Toast };
+export { Alert, Button, Card, Carousel, Divider, Icon, Input, Link, List, ListItem, Modal, ProgressBar, Slider, Switch, Tag, Text, Toast };

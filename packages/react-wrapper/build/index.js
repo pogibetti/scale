@@ -92,6 +92,8 @@ var Input = function (props) { return (React.createElement(WebComponentWrapper, 
         onKeyDown: 'keyDownEvent'
     }, component: 'scale-input' }, props))); };
 var Link = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-link' }, props))); };
+var List = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-list' }, props))); };
+var ListItem = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-list-item' }, props))); };
 var Modal = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-modal' }, props))); };
 var ProgressBar = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-progress-bar' }, props))); };
 var Slider = function (props) { return (React.createElement(WebComponentWrapper, __assign({ component: 'scale-slider' }, props))); };
@@ -108,6 +110,8 @@ exports.Divider = Divider;
 exports.Icon = Icon;
 exports.Input = Input;
 exports.Link = Link;
+exports.List = List;
+exports.ListItem = ListItem;
 exports.Modal = Modal;
 exports.ProgressBar = ProgressBar;
 exports.Slider = Slider;
