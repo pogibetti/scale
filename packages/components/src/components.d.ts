@@ -236,7 +236,7 @@ export namespace Components {
         /**
           * (optional) Input type
          */
-        "type"?: "email" | "hidden" | "number" | "password" | "tel" | "text" | "url";
+        "type"?: "email" | "hidden" | "number" | "password" | "tel" | "text" | "checkbox" | "radio" | "url";
         /**
           * (optional) Input value
          */
@@ -833,7 +833,7 @@ declare namespace LocalJSX {
         /**
           * (optional) Input type
          */
-        "type"?: "email" | "hidden" | "number" | "password" | "tel" | "text" | "url";
+        "type"?: "email" | "hidden" | "number" | "password" | "tel" | "text" | "checkbox" | "radio" | "url";
         /**
           * (optional) Input value
          */
