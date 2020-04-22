@@ -182,6 +182,10 @@ export namespace Components {
     }
     interface ScaleInput {
         /**
+          * (optional) Input checkbox id
+         */
+        "checkboxId"?: string;
+        /**
           * (optional) Input counter
          */
         "counter"?: boolean;
@@ -197,6 +201,10 @@ export namespace Components {
           * (optional) Input helper text
          */
         "helperText"?: string;
+        /**
+          * (optional) Input checkbox checked icon
+         */
+        "icon"?: string;
         /**
           * (optional) Input label
          */
@@ -772,6 +780,10 @@ declare namespace LocalJSX {
     }
     interface ScaleInput {
         /**
+          * (optional) Input checkbox id
+         */
+        "checkboxId"?: string;
+        /**
           * (optional) Input counter
          */
         "counter"?: boolean;
@@ -787,6 +799,10 @@ declare namespace LocalJSX {
           * (optional) Input helper text
          */
         "helperText"?: string;
+        /**
+          * (optional) Input checkbox checked icon
+         */
+        "icon"?: string;
         /**
           * (optional) Input label
          */

@@ -33,12 +33,12 @@
       const variants = {
         custom: {
           background: 'pink',
-          borderColor: 'pink'
-        }
-      }
+          borderColor: 'pink',
+        },
+      };
       scale.useTheme({
         shape: {
-          borderRadius: 4
+          borderRadius: 4,
         },
         typography: {
           variants: {
@@ -50,34 +50,50 @@
         },
         components: {
           Button: {
-            'button--variant-custom': variants.custom
+            'button--variant-custom': variants.custom,
           },
           Tag: {
-            'tag--variant-custom': variants.custom
-          }
-        }
-      })
+            'tag--variant-custom': variants.custom,
+          },
+        },
+      });
     </script>
   </head>
 
   <body>
-    <h1>Components</h1><h3>Tag</h3>
+    <h1>Components</h1>
+    <h3>Tag</h3>
     <h3>Checkbox</h3>
 
     <form id="form-checkbox">
-      <scale-input id="checkbox-1" type="checkbox"></scale-input>
-      <scale-input id="checkbox-2" type="checkbox"></scale-input>
+      <scale-input
+        checkboxId="checkbox-1"
+        type="checkbox"
+        value="1"
+        label="checkbox"
+        icon="M21.15,4.85 L9,17.05 L3.3,11.3 C2.9,10.9 2.3,10.9 1.9,11.3 C1.5,11.7 1.5,12.3 1.9,12.7 L9,19.85 L22.6,6.25 C23,5.85 23,5.25 22.6,4.85 C22.2,4.45 21.55,4.5 21.15,4.85 Z"
+        name="nameOfCheckbox"
+      ></scale-input>
+      <scale-input
+        checkboxId="checkbox-2"
+        type="checkbox"
+        value="2"
+        label="another checkbox"
+        icon="M21.15,4.85 L9,17.05 L3.3,11.3 C2.9,10.9 2.3,10.9 1.9,11.3 C1.5,11.7 1.5,12.3 1.9,12.7 L9,19.85 L22.6,6.25 C23,5.85 23,5.25 22.6,4.85 C22.2,4.45 21.55,4.5 21.15,4.85 Z"
+        name="nameOfCheckbox"
+      ></scale-input>
       <button type="submit">Submit</button>
     </form>
 
     <script>
-      const form = document.getElementById('form-checkbox')
-      form.addEventListener('submit', (event) => {
-        event.preventDefault()
-        const one = document.getElementById('checkbox-1').value
-        const two = document.getElementById('checkbox-2').value
-        console.log(one, two)
-      })
+      const form = document.getElementById('form-checkbox');
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const checkboxes = document.getElementsByName('nameOfCheckbox');
+        for (let checkbox of checkboxes) {
+          console.log(checkbox.value);
+        }
+      });
     </script>
 
     <button id="change">Change</button>
@@ -90,21 +106,26 @@
         document.getElementById('change-input').styles = {
           input: {
             '& .input__input': {
-              color: 'blue'
-            }
-          }
-        }
-      })
+              color: 'blue',
+            },
+          },
+        };
+      });
     </script>
-    
+
     <h3>Static input with label</h3>
     <scale-input variant="static" label="Text"></scale-input>
 
     <h3>Animated input</h3>
-    <scale-input label="First Name" placeholder="Hello"></scale-input>
+    <scale-input
+      variant="animated"
+      label="First Name"
+      placeholder="Hello"
+    ></scale-input>
 
     <h3>Animated input - max length and counter</h3>
     <scale-input
+      variant="animated"
       label="Last Name"
       max-length="24"
       counter
@@ -112,6 +133,7 @@
 
     <h3>Input Text - helper text</h3>
     <scale-input
+      variant="animated"
       id="input-error"
       label="address"
       required="true"
@@ -121,15 +143,13 @@
     <button id="show-error">Toggle error</button>
     <script>
       document.getElementById('show-error').addEventListener('click', () => {
-        const input = document.getElementById('input-error')
+        const input = document.getElementById('input-error');
         if (input.status === 'error') {
-          input.status = undefined,
-          input.helperText = undefined
+          (input.status = undefined), (input.helperText = undefined);
         } else {
-          input.status = 'error',
-          input.helperText = 'Some error happened'
+          (input.status = 'error'), (input.helperText = 'Some error happened');
         }
-      })
+      });
     </script>
     <h3>Input Text - helper text</h3>
     <scale-input
@@ -174,10 +194,10 @@
 
     <h3>Input hidden</h3>
     <scale-input type="hidden"></scale-input>
-    
+
     <h3>Input small</h3>
     <scale-input size="small"></scale-input>
-    
+
     <h3>Input small animated</h3>
     <scale-input label="Name" size="small"></scale-input>
 
@@ -191,7 +211,13 @@
     <h3>Tag - dismissable</h3>
     <scale-tag dismissable>tag dismissable</scale-tag>
     <h3>Tag - dismissable with link</h3>
-    <scale-tag id="tag-dismissable" dismissable href="http://example.com" target="_blank">tag dismissable</scale-tag>
+    <scale-tag
+      id="tag-dismissable"
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      >tag dismissable</scale-tag
+    >
     <h3>Tag - small</h3>
     <scale-tag size="small">Small</scale-tag>
     <h3>Tag - small dismissable</h3>
@@ -209,21 +235,77 @@
     <scale-tag variant="success">tag</scale-tag>
     <scale-tag variant="custom">tag</scale-tag>
     <h3>Tag - variants link</h3>
-    <scale-tag href="http://example.com" target="_blank" variant="primary">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="secondary">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="error">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="warning">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="info">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="success">tag</scale-tag>
-    <scale-tag href="http://example.com" target="_blank" variant="custom">tag</scale-tag>
+    <scale-tag href="http://example.com" target="_blank" variant="primary"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="secondary"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="error"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="warning"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="info"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="success"
+      >tag</scale-tag
+    >
+    <scale-tag href="http://example.com" target="_blank" variant="custom"
+      >tag</scale-tag
+    >
     <h3>Tag - variants link dismissable</h3>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="primary">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="secondary">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="error">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="warning">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="info">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="success">tag</scale-tag>
-    <scale-tag dismissable href="http://example.com" target="_blank" variant="custom">tag</scale-tag>
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="primary"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="secondary"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="error"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="warning"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="info"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="success"
+      >tag</scale-tag
+    >
+    <scale-tag
+      dismissable
+      href="http://example.com"
+      target="_blank"
+      variant="custom"
+      >tag</scale-tag
+    >
     <h3>Tag - dismissable</h3>
     <scale-tag variant="primary" dismissable>tag</scale-tag>
     <scale-tag variant="secondary" dismissable>tag</scale-tag>
@@ -245,9 +327,11 @@
     <scale-tag size="small" variant="warning" dismissable>tag</scale-tag>
     <scale-tag size="small" variant="info" dismissable>tag</scale-tag>
     <scale-tag size="small" variant="success" dismissable>tag</scale-tag>
-    
+
     <script>
-      document.getElementById('tag-dismissable').addEventListener('close', (event) => console.log('Tag closed', event))
+      document
+        .getElementById('tag-dismissable')
+        .addEventListener('close', event => console.log('Tag closed', event));
     </script>
 
     <h3>Text</h3>
