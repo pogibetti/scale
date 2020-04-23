@@ -69,10 +69,12 @@ interface IconProps {
 }
 declare const Icon: React.FunctionComponent<IconProps>;
 interface InputProps {
+    checkboxId?: string;
     counter?: boolean;
     customClass?: string;
     disabled?: boolean;
     helperText?: string;
+    icon?: string;
     label?: string;
     maxLength?: number;
     minLength?: number;
@@ -82,7 +84,7 @@ interface InputProps {
     size?: string;
     status?: string;
     styles?: StyleSheet<string | number | symbol>;
-    type?: 'email' | 'hidden' | 'number' | 'password' | 'tel' | 'text' | 'url';
+    type?: 'checkbox' | 'email' | 'hidden' | 'number' | 'password' | 'radio' | 'tel' | 'text' | 'url';
     value?: string;
     variant?: 'animated' | 'static';
     onBlur?: (event?: any) => void;
