@@ -1,9 +1,6 @@
 # scale-input
 
-
-
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -26,7 +23,6 @@
 | `value`       | `value`        | (optional) Input value         | `string`                                                                    | `undefined`  |
 | `variant`     | `variant`      | (optional) Input label variant | `"animated" \| "static"`                                                    | `'animated'` |
 
-
 ## Events
 
 | Event          | Description                         | Type               |
@@ -36,7 +32,20 @@
 | `focusEvent`   |                                     | `CustomEvent<any>` |
 | `keyDownEvent` |                                     | `CustomEvent<any>` |
 
+## Dependencies
 
-----------------------------------------------
+### Depends on
 
-*Built with [StencilJS](https://stenciljs.com/)*
+- [scale-icon](../icon)
+
+### Graph
+
+```mermaid
+graph TD;
+  scale-input --> scale-icon
+  style scale-input fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+---
+
+_Built with [StencilJS](https://stenciljs.com/)_
