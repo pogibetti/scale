@@ -3,10 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-import { useTheme } from '@scaleds/components/dist/theme'
-
+import { useTheme, getTheme } from '@scaleds/components/dist/theme'
 useTheme({
   shape: {
-    borderRadius: 0
+    borderRadius: 24
   }
 })
+
+
+console.log('theme', getTheme())

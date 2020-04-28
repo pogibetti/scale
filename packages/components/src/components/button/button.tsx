@@ -20,7 +20,7 @@ export class Button implements Base {
   /** (optional) Button size */
   @Prop() size?: string = '';
   /** (optional) Button variant */
-  @Prop() variant?: string = '';
+  @Prop({reflectToAttr: true}) variant?: string = '';
   /** (optional) Disabled button */
   @Prop() disabled?: boolean = false;
   /** (optional) Icon only */
@@ -103,7 +103,10 @@ export class Button implements Base {
           {this.icon && this.icon !== '' ? (
             <scale-icon path={this.icon} size={this.iconSize} />
           ) : (
-            <slot />
+            <div>
+              variant: {this.variant || 'not defined'}
+              <slot />
+            </div>
           )}
           {!!this.icon === false &&
             (!!this.iconAfter === true || this.hasSlotAfter) && (

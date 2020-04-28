@@ -47,6 +47,7 @@ export function CssInJs(
   };
 
   return (target: ComponentInterface, propertyKey: string) => {
+    console.log('CSS-IN-JS', componentKey)
     let prevStyles;
     const { componentWillLoad } = target;
     if (!componentWillLoad) {
@@ -65,6 +66,7 @@ export function CssInJs(
           .update(getTheme()) as StyleSheet;
         // save the current value of the styles property and use it later to compare in componentWillUpdate
         prevStyles = this.styles;
+        console.log('LOAD theme', componentKey)
 
         const willLoadResult =
           componentWillLoad && componentWillLoad.call(this);
@@ -97,6 +99,7 @@ export function CssInJs(
               .update(getTheme()) as StyleSheet;
             // update the current value of the styles property and use it for next runs of componentWillUpdate
             prevStyles = this.styles;
+            console.log('UPDATE theme', componentKey)
           }
         } catch (error) {
           // tslint:disable-next-line: no-console

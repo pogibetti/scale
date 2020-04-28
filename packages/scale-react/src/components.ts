@@ -11,6 +11,7 @@ applyPolyfills().then(() => defineCustomElements());
 export const ScaleAlert = /*@__PURE__*/createReactComponent<JSX.ScaleAlert, HTMLScaleAlertElement>('scale-alert');
 export const ScaleBreadcrumb = /*@__PURE__*/createReactComponent<JSX.ScaleBreadcrumb, HTMLScaleBreadcrumbElement>('scale-breadcrumb');
 export const ScaleButton = /*@__PURE__*/createReactComponent<JSX.ScaleButton, HTMLScaleButtonElement>('scale-button');
+export const ScaleButtonCss = /*@__PURE__*/createReactComponent<JSX.ScaleButtonCss, HTMLScaleButtonCssElement>('scale-button-css');
 export const ScaleCard = /*@__PURE__*/createReactComponent<JSX.ScaleCard, HTMLScaleCardElement>('scale-card');
 export const ScaleCarousel = /*@__PURE__*/createReactComponent<JSX.ScaleCarousel, HTMLScaleCarouselElement>('scale-carousel');
 export const ScaleDivider = /*@__PURE__*/createReactComponent<JSX.ScaleDivider, HTMLScaleDividerElement>('scale-divider');

@@ -2488,8 +2488,9 @@ const defaultTheme = {
     },
 };
 
+const data = typeof window === 'object' ? window : { theme: {} };
 const getTheme = (overrides) => {
-    const scale = window.scale;
+    const scale = data.scale;
     if (scale) {
         const injectedTheme = scale.theme;
         if (injectedTheme) {
@@ -2502,8 +2503,8 @@ const getTheme = (overrides) => {
     return defaultTheme;
 };
 const useTheme = (overrides) => {
-    window.scale = Object.assign({}, window.scale);
-    const scale = window.scale;
+    data.scale = Object.assign({}, data.scale);
+    const scale = data.scale;
     scale.theme = getTheme(overrides);
 };
 
