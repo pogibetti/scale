@@ -1,17 +1,20 @@
 # scale-input
 
+
+
 <!-- Auto Generated Below -->
+
 
 ## Properties
 
 | Property      | Attribute      | Description                            | Type                                                                                                 | Default     |
 | ------------- | -------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
-| `checkboxId`  | `checkbox-id`  | (optional) Input checkbox id           | `string`                                                                                             | `undefined` |
 | `counter`     | `counter`      | (optional) Input counter               | `boolean`                                                                                            | `undefined` |
 | `customClass` | `custom-class` | (optional) Input text class            | `string`                                                                                             | `''`        |
 | `disabled`    | `disabled`     | (optional) Input disabled              | `boolean`                                                                                            | `undefined` |
 | `helperText`  | `helper-text`  | (optional) Input helper text           | `string`                                                                                             | `''`        |
 | `icon`        | `icon`         | (optional) Input checkbox checked icon | `string`                                                                                             | `undefined` |
+| `inputId`     | `input-id`     | (optional) Input checkbox id           | `string`                                                                                             | `undefined` |
 | `label`       | `label`        | (optional) Input label                 | `string`                                                                                             | `''`        |
 | `maxLength`   | `max-length`   | (optional) Input max length            | `number`                                                                                             | `undefined` |
 | `minLength`   | `min-length`   | (optional) Input min length            | `number`                                                                                             | `undefined` |
@@ -25,6 +28,7 @@
 | `value`       | `value`        | (optional) Input value                 | `string`                                                                                             | `undefined` |
 | `variant`     | `variant`      | (optional) Input label variant         | `"animated" \| "static"`                                                                             | `undefined` |
 
+
 ## Events
 
 | Event          | Description                         | Type               |
@@ -34,6 +38,7 @@
 | `focusEvent`   |                                     | `CustomEvent<any>` |
 | `keyDownEvent` |                                     | `CustomEvent<any>` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -41,13 +46,12 @@
 - [scale-icon](../icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   scale-input --> scale-icon
   style scale-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
