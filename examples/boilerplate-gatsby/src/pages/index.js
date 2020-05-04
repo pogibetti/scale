@@ -4,7 +4,8 @@ import {
   ScaleCard,
   ScaleLink,
   ScaleTag,
-  ScaleTable
+  ScaleTable,
+  ScaleText
 } from "@scaleds/components-react"
 import { useTable, useSortBy } from "react-table"
 
@@ -61,7 +62,12 @@ const IndexPage = () => {
       </ScaleTag>
 
       <ScaleTable variant="regular">
-        <table {...getTableProps()}>
+        <div slot="header" style="padding: 20px 8px 0px 8px;">
+          <ScaleText variant="h5">
+            Table title
+          </ScaleText>
+        </div>
+        <table slot="table" {...getTableProps()}>
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
