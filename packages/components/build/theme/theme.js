@@ -2484,13 +2484,18 @@ const defaultTheme = {
     zIndex: {},
     icons: {
         close: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z',
+        separator: 'M8.306 22.679a1.137 1.137 0 01-.061-1.481l.06-.07 7.741-8.126-7.74-8.13a1.137 1.137 0 01-.061-1.481l.06-.07c.387-.406 1-.427 1.411-.064l.066.064L19 13.001 9.782 22.68a1.01 1.01 0 01-1.476 0z',
     },
 };
 
+const THEME_MAGIC_STRING = 'ʕ•ᴥ•ʔ theme store magic placeholder ʕ•ᴥ•ʔ';
+const store = typeof window !== 'undefined' && typeof window.Audio !== 'undefined'
+    ? window
+    : { scale: { theme: THEME_MAGIC_STRING } };
 const getTheme = (overrides) => {
-    const scale = window.scale;
+    const scale = store.scale;
     if (scale) {
-        const injectedTheme = scale.theme;
+        const injectedTheme = typeof scale.theme === 'object' && scale.theme;
         if (injectedTheme) {
             return combineObjects(defaultTheme, injectedTheme);
         }
@@ -2501,10 +2506,12 @@ const getTheme = (overrides) => {
     return defaultTheme;
 };
 const useTheme = (overrides) => {
-    window.scale = Object.assign({}, window.scale);
-    const scale = window.scale;
+    store.scale = Object.assign({}, store.scale);
+    const scale = store.scale;
     scale.theme = getTheme(overrides);
+    return scale.theme;
 };
 
+exports.THEME_MAGIC_STRING = THEME_MAGIC_STRING;
 exports.getTheme = getTheme;
 exports.useTheme = useTheme;

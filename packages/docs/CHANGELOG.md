@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/gatsbyjs/gatsby-starter-default/compare/v0.1.3...v0.1.4) (2020-04-29)
+
+
+### Bug Fixes
+
+* renames scale-react package to components-react and fixes all the paths ([#200](https://github.com/gatsbyjs/gatsby-starter-default/issues/200)) ([2cd2fb1](https://github.com/gatsbyjs/gatsby-starter-default/commit/2cd2fb11d29d82640b244108c3ba75f77fca3f1b))
+* render theme for docs ([#193](https://github.com/gatsbyjs/gatsby-starter-default/issues/193)) ([9bf02ff](https://github.com/gatsbyjs/gatsby-starter-default/commit/9bf02ff14912894a5f266b095493a742da9f0316))
+
+
+
+
+
+## [0.1.3](https://github.com/gatsbyjs/gatsby-starter-default/compare/v0.1.2...v0.1.3) (2020-04-24)
+
+**Note:** Version bump only for package @scaleds/docs
+
+
+
+
+
+# [0.1.0](https://github.com/gatsbyjs/gatsby-starter-default/compare/v0.0.12...v0.1.0) (2020-04-23)
+
+
+### Bug Fixes
+
+* update build files ([#175](https://github.com/gatsbyjs/gatsby-starter-default/issues/175)) ([1767c8b](https://github.com/gatsbyjs/gatsby-starter-default/commit/1767c8bf98927d00afdce177f0e367d79c456e77))
+
+
+### Features
+
+* finishes integration of the react proxy output plugin. Updates the react boiler plate. ([c33e451](https://github.com/gatsbyjs/gatsby-starter-default/commit/c33e4514fb840cc2e19e53dee1b17c30e27320ac))
+
+
+
+
+
 ## [0.0.15](https://github.com/gatsbyjs/gatsby-starter-default/compare/v0.0.14...v0.0.15) (2020-04-01)
 
 **Note:** Version bump only for package @scaleds/docs

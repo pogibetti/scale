@@ -1,8 +1,13 @@
 import { Config } from '@stencil/core';
+import { reactOutputTarget } from '@nowseemee/stencil-react-output-target';
 
 export const config: Config = {
   namespace: 'scale-components',
   outputTargets: [
+    reactOutputTarget({
+      componentCorePackage: '@scaleds/components',
+      proxiesFile: '../components-react/src/components.ts',
+    }),
     {
       type: 'dist',
       esmLoaderPath: '../loader',
@@ -29,6 +34,7 @@ export const config: Config = {
     {
       type: 'docs-json',
       file: './dist/scale-components.json'
-    }
+    },
+    { type: 'dist-hydrate-script' }
   ]
 };
